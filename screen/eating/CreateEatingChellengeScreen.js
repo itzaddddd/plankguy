@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function EatChallengeScreen({navigation}) {
     return (
       <View style={styles.container}>
-        <Text>ชาเลนจ์การกิน</Text>
+        <Text style={styles.Header}>ชาเลนจ์การกิน</Text>
       </View>
     );
   }
@@ -16,4 +16,8 @@ export default function EatChallengeScreen({navigation}) {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    Header:{
+      fontSize: 40,
+      fontFamily: 'K2D'
+    }
   });
