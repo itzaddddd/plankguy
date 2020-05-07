@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function HomeScreen({navigation}) {
+export default function LoginScreen({navigation}) {
     return (
       <View style={styles.container}>
-        <Text>Login</Text>
+        <Text>เช้าสู่ระบบ</Text>
       </View>
     );
   }

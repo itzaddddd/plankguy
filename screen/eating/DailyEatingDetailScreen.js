@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function HomeScreen({navigation}) {
+export default function DailyEatingDetailScreen({navigation}) {
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        <Text>รายละเอียดการกินในแต่ละวัน</Text>
       </View>
     );
   }
