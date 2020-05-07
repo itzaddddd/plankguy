@@ -5,6 +5,7 @@ export default function EatChallengeScreen({navigation}) {
     return (
       <View style={styles.container}>
         <Text style={styles.Header}>ชาเลนจ์การกิน</Text>
+        <Text style={styles.Header}>เลือกชาเลนจ์การกิน และบันทึกการกิน</Text>
       </View>
     );
   }
@@ -18,6 +19,10 @@ export default function EatChallengeScreen({navigation}) {
     },
     Header:{
       fontSize: 40,
+      fontFamily: 'K2D'
+    },
+    Header2:{
+      fontSize: 20,
       fontFamily: 'K2D'
     }
   });
