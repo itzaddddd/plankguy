@@ -74,7 +74,7 @@ export default function ProfileScreen({navigation}) {
         style={{
           borderBottomColor: '#5B5A5A',
           borderBottomWidth: 2,
-          marginVertical: 10,
+          marginVertical: 20,
           marginHorizontal:100,
           paddingBottom:5,
         }}>
@@ -82,8 +82,9 @@ export default function ProfileScreen({navigation}) {
             textAlign:'center',
             fontWeight:'bold',
             fontSize:20,
-            textShadowColor: 'gray',
-            textShadowRadius: 5,
+            textShadowColor: '#5B5A5A',
+            textShadowRadius: 3,
+            textShadowOffset: {width:1,height:1},
           }}>
             ชาเลนจ์ที่ทำสำเร็จ
           </Text>
