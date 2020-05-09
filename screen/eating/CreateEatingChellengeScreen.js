@@ -49,7 +49,7 @@ export default function EatChallengeScreen({navigation}) {
           <TouchableOpacity
           style={styles.submit}
           underlayColor='#fff'>
-          <Image source={require('C:/Users/ACER/plankguy/assets/plus.png')}  
+          <Image source={require('../../assets/plus.png')}  
             style={{width:20, height: 20}}/>
           <Text style={styles.submitText}>บันทึกรายการอาหารที่ทาน</Text>
           </TouchableOpacity>
