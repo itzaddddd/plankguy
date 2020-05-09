@@ -9,6 +9,9 @@ import EatChallengeScreen from './screen/eating/CreateEatingChellengeScreen'
 import WorkoutChallengeScreen from './screen/workout/CreateWorkoutChellengeScreen'
 import FavDiaryScreen from './screen/diary/FavDiaryScreen'
 import LoginScreen from './screen/auth/LoginScreen'
+import SignUpScreen from './screen/auth/Signup.Screen'
+import ProfileScreen from './screen/auth/ProfileScreen'
+import EditProfileScreen from './screen/auth/EditProfileScreen'
 
 const Drawer = createDrawerNavigator()
 export default function App() {
@@ -21,6 +24,10 @@ export default function App() {
         <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
         <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
         <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
+        <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
+        <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
+        <Drawer.Screen name="EditProfile" component={EditProfileScreen} options={{title:"แก้ไขโปรไฟล์"}} />
+
       </Drawer.Navigator>
     </NavigationContainer> 
   );

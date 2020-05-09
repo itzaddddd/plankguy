@@ -1,11 +1,21 @@
 import React from 'react';
-import {Image,  StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Image,  StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import CompletedChallenge from '../../components/CompletedChallenge'
 
-export default function ProfileScreen({navigation}) {
+export default class ProfileScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userName: "",
+            weight1: "",
+            weight2: "",
+        };
+    }
+    render() {
+
     return (
     <ScrollView >
       <View style={styles.headerContainer}>
@@ -25,7 +35,13 @@ export default function ProfileScreen({navigation}) {
             name="user"
             style={{marginHorizontal: 10,paddingVertical: 5,}}
           />
-          <Text style={styles.userNameText}>Chatchaya Innarong</Text>
+          <TextInput 
+            require
+            style={styles.userNameText}
+            maxLength={15}
+            placeholder="ชื่อผู้ใช้"
+            value={this.state.userName}
+            onChangeText={(userName) => this.setState({ userName })}/>
         </View>
 
         <View style={styles.userWeightRow}>
@@ -36,7 +52,14 @@ export default function ProfileScreen({navigation}) {
             name="weight"
             style={{marginHorizontal: 6,paddingVertical: 5,}}
           />
-          <Text style={styles.userWeightText}>น้ำหนักเริ่มต้น</Text>
+          <TextInput 
+            require
+            style={styles.userWeightText}
+            maxLength={3}
+            placeholder="น้ำหนักเริ่มต้น"
+            keyboardType='number-pad'
+            value={this.state.weight1}
+            onChangeText={(weight1) => this.setState({ weight1 })}/>
             
           <FontAwesome5
             size={20}
@@ -45,104 +68,36 @@ export default function ProfileScreen({navigation}) {
             name="weight"
             style={{marginHorizontal: 6,paddingVertical: 5,}}
           />
-          <Text style={styles.userWeightText}>น้ำหนักเป้าหมาย</Text>
-            {/* <Text style={styles.userBioText}>น้ำหนักเป้าหมาย</Text> */}
+          <TextInput 
+            require
+            style={styles.userWeightText}
+            maxLength={3}
+            placeholder="น้ำหนักเป้าหมาย"
+            keyboardType='number-pad'
+            value={this.state.weight2}
+            onChangeText={(weight2) => this.setState({ weight2 })}/>
         </View>
 
-        <TouchableOpacity  style={styles.buttonEditProfile}>
+        <TouchableOpacity  style={styles.buttonSaveProfile}>
           <Text style={{fontSize:16, fontWeight:'bold'}}>
-            แก้ไขโปรไฟล์
+            บันทึก
           </Text>
         </TouchableOpacity>
-
-        <TouchableOpacity  style={styles.buttonLogOut}>
-          <Text style={{fontSize:18, fontWeight:'bold'}}>
-            ออกจากระบบ
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <View
-        style={{
-          borderBottomColor: '#5B5A5A',
-          borderBottomWidth: 2,
-          marginTop: 30,
-          marginHorizontal:40,
-        }}/>
-
-      <View
-        style={{
-          borderBottomColor: '#5B5A5A',
-          borderBottomWidth: 2,
-          marginVertical: 10,
-          marginHorizontal:100,
-          paddingBottom:5,
-        }}>
-          <Text style ={{
-            textAlign:'center',
-            fontWeight:'bold',
-            fontSize:20,
-            textShadowColor: 'gray',
-            textShadowRadius: 5,
-          }}>
-            ชาเลนจ์ที่ทำสำเร็จ
-          </Text>
-      </View>
-
-      <CompletedChallenge/>
-
-      
+      </View>      
     </ScrollView>
 
-    );
+    );}
   }
   
   const styles = StyleSheet.create({
-    cardContainer: {
-      flex: 1,
-    },
-    container: {
-      flex: 1,
-    },
     headerContainer: {
       alignItems: 'center',
       backgroundColor: '#A0D1F7', //blue color
       margin: 0,
       paddingTop: 80,
     },
-    indicatorTab: {
-      backgroundColor: 'transparent',
-    },
     scroll: {
       backgroundColor: '#FFF', // gray 
-    },
-    sceneContainer: {
-      marginTop: 10,
-    },
-    socialIcon: {
-      marginLeft: 14,
-      marginRight: 14,
-    },
-    socialRow: {
-      flexDirection: 'row',
-    },
-    tabBar: {
-      backgroundColor: '#EEE',
-    },
-    tabContainer: {
-      flex: 1,
-      marginBottom: 12,
-    },
-    tabLabelNumber: {
-      color: 'gray',
-      fontSize: 12.5,
-      textAlign: 'center',
-    },
-    tabLabelText: {
-      color: 'black',
-      fontSize: 22.5,
-      fontWeight: '600',
-      textAlign: 'center',
     },
     userBioRow: {
       marginHorizontal: 40,
@@ -186,7 +141,8 @@ export default function ProfileScreen({navigation}) {
       paddingHorizontal: 10,
       borderBottomWidth: 2,
       borderBottomColor: '#5B5A5A',
-      alignSelf: 'stretch',
+      width: 277,
+//      alignSelf: 'stretch',
     },
     userWeightText: {
       color: '#5B5A5A',
@@ -196,32 +152,21 @@ export default function ProfileScreen({navigation}) {
       paddingHorizontal: 6,
       borderBottomWidth: 2,
       borderBottomColor: '#5B5A5A',
-      alignSelf: 'stretch',
+    //   alignSelf: 'stretch',
     },
     userRow: {
       alignItems: 'center',
       flexDirection: 'column',
       justifyContent: 'center',
-      marginTop: 90,
+      marginTop: 120,
       marginBottom: 12,
     },
-    buttonEditProfile: {
-      marginVertical: 10,
+    buttonSaveProfile: {
+      marginVertical: 50,
       backgroundColor: '#79B6E6',
       elevation: 2, 
       height: 40,
       width: 140,
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'row',
-      borderRadius: 20,
-  },
-  buttonLogOut: {
-      marginVertical: 10,
-      backgroundColor: '#79B6E6',
-      elevation: 2, 
-      height: 40,
-      width: 160,
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'row',
