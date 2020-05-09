@@ -55,7 +55,7 @@ export default class ProfileScreen extends React.Component {
           <TextInput 
             require
             style={styles.userWeightText}
-            maxLength={3}
+            maxLength={4}
             placeholder="น้ำหนักเริ่มต้น"
             keyboardType='number-pad'
             value={this.state.weight1}
@@ -71,7 +71,7 @@ export default class ProfileScreen extends React.Component {
           <TextInput 
             require
             style={styles.userWeightText}
-            maxLength={3}
+            maxLength={4}
             placeholder="น้ำหนักเป้าหมาย"
             keyboardType='number-pad'
             value={this.state.weight2}

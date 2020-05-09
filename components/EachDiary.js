@@ -25,9 +25,11 @@ export default class EachDiary extends React.Component {
       <View style={styles.container}>
         <Card style={styles.diaryCard}>
             <View  style={styles.headerDiary} >
-                <Text   style={styles.diaryDate} >
-                    Day  {this.diaryDate}
-                </Text>
+                <TouchableOpacity>
+                    <Text   style={styles.diaryDate} >
+                        Day  {this.diaryDate}
+                    </Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.heart}>
                     <Icon
                     style={styles.favDiary}
@@ -70,6 +72,7 @@ export default class EachDiary extends React.Component {
         backgroundColor: '#A0D1F7',
         width: 320,
         flexDirection: "row",
+        alignContent: 'flex-end',
         alignItems: "center"
     },
     diaryContent: {
@@ -80,20 +83,21 @@ export default class EachDiary extends React.Component {
     diaryDate: {
         fontSize: 18,
         fontWeight: 'bold',
-        alignSelf: 'flex-start',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        // alignSelf: 'flex-start',
+        // alignItems: 'flex-start',
+        // justifyContent: 'flex-start',
     },
     favDiary: {
         color: '#CC0000', //red heart
         fontSize: 24,
         alignSelf: 'flex-end',
-        // textAlignVertical: 'center',
+        textAlignVertical: 'center',
         // alignItems: 'flex-end',
         // justifyContent: 'flex-end',
         // alignSelf: 'flex-end',
     },
     heart: {
+        textAlign: 'left',
         alignSelf: 'flex-end',
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
