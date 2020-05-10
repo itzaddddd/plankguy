@@ -6,11 +6,12 @@ import NavigationBar from 'react-native-navbar';
 export default function EatChallengeScreen({navigation}) {
     return (
       <ScrollView>
-        <NavigationBar
+        {/* <NavigationBar
         containerStyle ={Bar}
         tintColor='#C0E3FF'
         title= {titleConfig}
-      />
+        style={{position:'relative'}}
+      /> */}
       <View style={styles.container}>
           <View style={styles.container2}>
             <Image 
@@ -49,7 +50,7 @@ export default function EatChallengeScreen({navigation}) {
           <TouchableOpacity
           style={styles.submit}
           underlayColor='#fff'>
-          <Image source={require('C:/Users/ACER/plankguy/assets/plus.png')}  
+          <Image source={require('../../assets/plus.png')}  
             style={{width:20, height: 20}}/>
           <Text style={styles.submitText}>บันทึกรายการอาหารที่ทาน</Text>
           </TouchableOpacity>

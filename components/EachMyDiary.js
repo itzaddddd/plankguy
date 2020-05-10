@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -23,11 +23,13 @@ export default class EachDiary extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Card style={styles.diaryCard}>
+        <Card>
             <View  style={styles.headerDiary} >
-                <Text   style={styles.diaryDate} >
-                    Day  {this.diaryDate}
-                </Text>
+                <TouchableOpacity>
+                    <Text   style={styles.diaryDate} >
+                        Day  {this.diaryDate}
+                    </Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.heart}>
                     <Icon
                     style={styles.favDiary}
@@ -40,13 +42,25 @@ export default class EachDiary extends React.Component {
             <Text style={styles.diaryContent}>
                 {this.diaryContent}
             </Text>
+            <View style={styles.diaryImageRow}>
+                <Image
+                    style={styles.diaryImage}
+                    source={require('../assets/avatar.png')} 
+                />
+                <Image
+                    style={styles.diaryImage}
+                    source={require('../assets/avatar.png')} 
+                />
+                <Image
+                    style={styles.diaryImage}
+                    source={require('../assets/avatar.png')} 
+                />
+            </View>
         </Card>
       </View>
     );}
   }
   
-  const width_ = '100%';
-
   const iconStyles = {
     borderRadius: 10,
     iconStyle: { paddingVertical: 5 },
@@ -56,8 +70,6 @@ export default class EachDiary extends React.Component {
     container: {
       flex: 1,
       backgroundColor: '#fff',
-    //   alignItems: 'center',
-    //   justifyContent: 'flex-start',
       paddingTop: 20,
       width: 350,
       marginHorizontal: 0,
@@ -70,32 +82,41 @@ export default class EachDiary extends React.Component {
         backgroundColor: '#A0D1F7',
         width: 320,
         flexDirection: "row",
+        alignContent: 'flex-end',
         alignItems: "center"
     },
     diaryContent: {
         backgroundColor: '#EEEEEE',
         paddingVertical: 10,
         paddingHorizontal: 10,
+        fontSize: 16,
     },
     diaryDate: {
         fontSize: 18,
         fontWeight: 'bold',
-        alignSelf: 'flex-start',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
     },
     favDiary: {
         color: '#CC0000', //red heart
         fontSize: 24,
         alignSelf: 'flex-end',
-        // textAlignVertical: 'center',
-        // alignItems: 'flex-end',
-        // justifyContent: 'flex-end',
-        // alignSelf: 'flex-end',
+        textAlignVertical: 'center',
     },
     heart: {
+        textAlign: 'right',
         alignSelf: 'flex-end',
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
+        marginLeft: 220,
+    },
+    diaryImage: {
+        width: 70,
+        height: 70,
+        marginBottom: 10,
+        marginHorizontal: 10,
+    },
+    diaryImageRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginLeft: 50,
     },
   });

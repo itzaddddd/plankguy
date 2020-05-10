@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import EachDiary from '../../components/EachDiary';
+import EachDiary from '../../components/EachMyDiary';
 import Popup from '../../components/Popup'
+
 export default function MyDiaryScreen({navigation}) {
     return (
 
