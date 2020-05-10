@@ -6,11 +6,12 @@ import NavigationBar from 'react-native-navbar';
 export default function EatChallengeScreen({navigation}) {
     return (
       <ScrollView>
-        <NavigationBar
+        {/* <NavigationBar
         containerStyle ={Bar}
         tintColor='#C0E3FF'
         title= {titleConfig}
-      />
+        style={{position:'relative'}}
+      /> */}
       <View style={styles.container}>
           <View style={styles.container2}>
             <Image 

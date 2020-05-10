@@ -111,44 +111,6 @@ export default function ProfileScreen({navigation}) {
       margin: 0,
       paddingTop: 80,
     },
-    indicatorTab: {
-      backgroundColor: 'transparent',
-    },
-    scroll: {
-      backgroundColor: '#FFF', // gray 
-    },
-    sceneContainer: {
-      marginTop: 10,
-    },
-    socialIcon: {
-      marginLeft: 14,
-      marginRight: 14,
-    },
-    socialRow: {
-      flexDirection: 'row',
-    },
-    tabBar: {
-      backgroundColor: '#EEE',
-    },
-    tabContainer: {
-      flex: 1,
-      marginBottom: 12,
-    },
-    tabLabelNumber: {
-      color: 'gray',
-      fontSize: 12.5,
-      textAlign: 'center',
-    },
-    tabLabelText: {
-      color: 'black',
-      fontSize: 22.5,
-      fontWeight: '600',
-      textAlign: 'center',
-    },
-    userBioRow: {
-      marginHorizontal: 40,
-      paddingHorizontal: 20,
-    },
     userBioText: {
       color: 'gray',
       fontSize: 13.5,
@@ -219,7 +181,7 @@ export default function ProfileScreen({navigation}) {
   },
   buttonLogOut: {
       marginVertical: 10,
-      backgroundColor: '#79B6E6',
+      backgroundColor: '#CC0000',
       elevation: 2, 
       height: 40,
       width: 160,

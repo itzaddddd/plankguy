@@ -137,7 +137,7 @@ export default class ProfileScreen extends React.Component {
       color: '#5B5A5A',
       fontSize: 18,
       fontWeight: 'bold',
-      textAlign: 'center',
+      textAlign: 'left',
       paddingHorizontal: 10,
       borderBottomWidth: 2,
       borderBottomColor: '#5B5A5A',
