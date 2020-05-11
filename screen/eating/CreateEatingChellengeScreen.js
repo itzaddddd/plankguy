@@ -1,9 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View , Image ,ScrollView ,Button } from 'react-native';
+import { StyleSheet, Text, View , Image ,ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import NavigationBar from 'react-native-navbar';
 
-export default function EatChallengeScreen({navigation}) {
+export default class EatChallengeScreen extends React.Component  {
+    static navigationOptions = {
+      title: 'Home'
+    }
+    render() {
     return (
       <ScrollView>
         {/* <NavigationBar
@@ -18,14 +23,14 @@ export default function EatChallengeScreen({navigation}) {
             source={require('../../assets/plate.png')}  
             style={{width:80, height: 80}} 
             />
-            <Text style={styles.Header}> ชาเลนจ์การกิน {"\n"}<Text style={styles.Header2}>เลือกชาเลนจ์การกิน {"\n"}และบันทึกการกิน</Text></Text>
+            <Text style={styles.Header}> ชาเลนจ์การกิน {"\n"}<Text style={styles.Header2}>เลือกชาเลนจ์การกิน และบันทึกการกิน</Text></Text>
           </View>
           <Text>{"\n"}</Text>
           <View style={styles.container3}>
             <Text style={styles.body}>ชาเลนจ์การกินของคุณ</Text>
           </View>
           <Text>{"\n"}</Text>
-          <View style={styles.container4}>
+          <TouchableOpacity style={styles.container4} onPress={() => this.props.navigation.navigate('SelectChallenge')}>
             <Text style={styles.body2}><Image 
             source={require('../../assets/cross.png')}  
             style={{width:50, height: 50}} 
@@ -37,7 +42,7 @@ export default function EatChallengeScreen({navigation}) {
               คุณยังไม่มีชาเลนจ์ โปรดเลือกชาเลนจ์ของคุณ
             </Text>
             </Text>
-          </View>
+          </TouchableOpacity>
           <Text>{"\n"}</Text>
           <View style={styles.container3}>
             <Text style={styles.body}>อาหารที่ทาน</Text>
@@ -65,6 +70,7 @@ export default function EatChallengeScreen({navigation}) {
       </View>
       </ScrollView>
     );
+    }
   }
   
   const styles = StyleSheet.create({
