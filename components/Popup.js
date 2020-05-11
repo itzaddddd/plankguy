@@ -30,4 +30,8 @@ export default class Popup extends React.Component {
         
     )
    }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 182b4a6c975a94ef3317618ba8e0f952aa0ee7a0
