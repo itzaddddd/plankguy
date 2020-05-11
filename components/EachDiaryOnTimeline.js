@@ -90,8 +90,8 @@ export default class EachDiary extends React.Component {
         alignItems: "center"
     },
     userImage: {
-        width: 30,
-        height: 30,
+        width: 35,
+        height: 35,
         alignContent: 'flex-start',
         alignItems: 'flex-start',
     },
@@ -115,7 +115,7 @@ export default class EachDiary extends React.Component {
         color: '#5A5B5B',
     },
     diaryContentBox: {
-        width: 380,
+        width: '120%',
         flexWrap: 'nowrap',
     },
     diaryContent: {
@@ -134,17 +134,17 @@ export default class EachDiary extends React.Component {
         alignSelf: 'flex-end',
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
-        marginLeft: 190,
+        marginLeft: '65%',
+    },
+    diaryImageRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '120%',
     },
     diaryImage: {
         width: 70,
         height: 70,
         marginBottom: 30,
         marginHorizontal: 5,
-    },
-    diaryImageRow: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignContent: 'center',
     },
   });

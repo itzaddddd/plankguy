@@ -1,14 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import EachDiary from '../../components/EachMyDiary';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 export default function MyDiaryScreen({navigation}) {
     return (
       <View style={styles.container}>
         <Text style={styles.topicMyDiary}>ไดอารี่ของฉัน</Text>
-        <View>
+        <ScrollView style={{paddingBottom:100,}}>
           <EachDiary/>
-        </View>
+          <EachDiary/>
+          <EachDiary/>
+          <EachDiary/>
+        </ScrollView>
       </View>
     );
   }
@@ -24,9 +28,10 @@ export default function MyDiaryScreen({navigation}) {
     topicMyDiary: {
       fontSize: 20,
       fontWeight: 'bold',
-      borderBottomColor: '#A0D1F7',
+      borderBottomColor: '#A0D1F7', //blue
       borderBottomWidth: 2,
       paddingVertical: 3,
       paddingHorizontal: 20,
+      marginBottom: 5,
     },
   });

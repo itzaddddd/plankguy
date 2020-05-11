@@ -91,6 +91,8 @@ export default function ProfileScreen({navigation}) {
       </View>
 
       <CompletedChallenge/>
+      <CompletedChallenge/>
+      <CompletedChallenge/>
 
       
     </ScrollView>
