@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -7,8 +7,8 @@ export default function DiaryPageScreen({navigation}) {
     return (
       <View style={styles.container}>
         <View style={styles.detailsdiary}>
-          <Text>แสดงรายละเอียดไดอารี่</Text>
-            <View style={styles.userNameRow}>
+          
+            <View style={styles.textrow}>
               <FontAwesome5
                   size={20}
                   color="#000"
@@ -16,9 +16,9 @@ export default function DiaryPageScreen({navigation}) {
                   name="user"
                   style={{marginHorizontal: 10,paddingVertical: 5,}}
               />
-                  <Text>ชื่อผู้ใช้</Text>
+                  <Text style={styles.textinbox}>ชื่อผู้ใช้</Text>
             </View>
-            <View style={styles.userNameRow}>
+            <View style={styles.textrow}>
               <FontAwesome5
                   size={20}
                   color="#000"
@@ -26,9 +26,9 @@ export default function DiaryPageScreen({navigation}) {
                   name="book"
                   style={{marginHorizontal: 10,paddingVertical: 5,}}
               />
-              <Text>Day 1</Text>
+              <Text style={styles.textinbox}>Day 1</Text>
             </View>
-            <View style={styles.userNameRow}>
+            <View style={styles.textrow}>
               <FontAwesome5
                   size={20}
                   color="#000"
@@ -36,9 +36,21 @@ export default function DiaryPageScreen({navigation}) {
                   name="file-alt"
                   style={{marginHorizontal: 10,paddingVertical: 5,}}
                 />
-                  <Text>วันนี้ออกกำลังกายโดยใช้วัสดุภายในบ้านแทนการออกไปที่ยิมและช่วยประหยัดค่าใช้จ่าย นั่นคือการเอาขวดน้ำแบบ 1.5 ลิตรยกแทนดัมเบลล์จำนวน 30 ครั้ง สลับกัน 2 ข้าง</Text>
+                  <Text style={styles.textinbox}>วันนี้ออกกำลังกายโดยใช้วัสดุภายในบ้านแทนการออกไปที่ยิมและช่วยประหยัดค่าใช้จ่าย นั่นคือการเอาขวดน้ำแบบ 1.5 ลิตรยกแทนดัมเบลล์จำนวน 30 ครั้ง สลับกัน 2 ข้าง</Text>
             </View>
-              <Text>รูปภาพในไดอารี่</Text>
+              <Text style={styles.texttopimage}>รูปภาพในไดอารี่</Text>
+              <View style={styles.boximage}>
+                <Image style={styles.tinyimage}
+                  source={require('../../assets/image.png')}
+                />
+                <Image style={styles.tinyimage}
+                  source={require('../../assets/image.png')}
+                />
+                <Image style={styles.tinyimage}
+                  source={require('../../assets/image.png')}
+                />
+               
+              </View>
             </View>
       </View>
     );
@@ -47,22 +59,44 @@ export default function DiaryPageScreen({navigation}) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#A0D1F7',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
+      paddingTop: 75,
+      
     },
-    userNameRow: {
-      borderStyle: 'solid',
-      borderWidth: 1.5,
-      borderColor: '#c6c6c6',
-        margin: 10,
+    textrow: {
         paddingVertical: 10,
         paddingHorizontal: 10,
         marginBottom: 10,
         flexDirection: 'row', 
     },
     detailsdiary: {
+      alignItems: 'center',
+      backgroundColor: '#fff',
       marginHorizontal: 30,
+      padding: 5,
+      borderStyle: 'solid',
+      borderWidth: 2,
+      borderColor: '#A0D1F7',
+      height:500,
     },
-
+    tinyimage: {
+      marginHorizontal: 20,
+      width: 70,
+      height: 70,
+    },
+    boximage: {
+     flexDirection: 'row', 
+    },
+    textinbox: {
+      paddingHorizontal: 10,
+      borderBottomWidth: 2,
+      borderBottomColor: '#5B5A5A',
+      width: 277,
+    },
+    texttopimage: {
+      textAlign: 'center',
+      margin: 10,
+    },
   });

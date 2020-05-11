@@ -13,6 +13,7 @@ import SignUpScreen from './screen/auth/Signup.Screen'
 import ProfileScreen from './screen/auth/ProfileScreen'
 import EditProfileScreen from './screen/auth/EditProfileScreen'
 import DiaryPageScreen from './screen/diary/DiaryPageScreen'
+import DiaryFormScreen from './screen/diary/DiaryFormScreen'
 
 const Drawer = createDrawerNavigator()
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
         <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
         <Drawer.Screen name="EditProfile" component={EditProfileScreen} options={{title:"แก้ไขโปรไฟล์"}} />
         <Drawer.Screen name="DiaryPageScreen" component={DiaryPageScreen} options={{title:"หน้าเขียนไดอารี่"}} />
+        <Drawer.Screen name="DiaryFormScreen" component={DiaryFormScreen} options={{title:"หน้าสร้างไดอารี่"}} />
 
       </Drawer.Navigator>
     </NavigationContainer> 
