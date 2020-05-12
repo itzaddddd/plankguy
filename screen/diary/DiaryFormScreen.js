@@ -1,25 +1,54 @@
 import React from 'react';
-import {Image,  StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
+import {Image,  StyleSheet, Text, View, ScrollView, TextInput, YellowBox, Alert} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import * as firebase from 'firebase'
 export default class DiaryFormScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        day: "",
-        description: "",
+        user:null,
+        mydiary:null,
+        diary_size: 1,
+        description:'',
+        diary_key:''
     };
+    YellowBox.ignoreWarnings(['Setting a timer'])
+  }
+
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user => {
+      if(user !== null){
+        this.setState({user:user.providerData[0]})
+      }else{
+        this.setState({user:null})
+      }
+    })
+
+    // get my diary
+    setTimeout(()=>{
+      let diaryRef = firebase.database().ref('diaries')
+      diaryRef.on('value',diaries => {
+        diaries.forEach(diary => {
+          diaryRef.child(diary.key).child('user_id').on('value',user_id => {
+            if(user_id.val() == this.state.user.uid){
+              this.setState({diary_key:diary.key})
+              this.setState({mydiary:diary.val()})
+              this.setState({diary_size:Object.keys(diary.val().diary_set).length})
+            }
+          })
+        })
+      })  
+    },2000)
   }
     render() {
-
-      this.day = 1
+      let {diary_size, diary_key} = this.state
 
     return (
       <ScrollView style={styles.container}>
         <View style={styles.detailsdiary}>
           <View>
-            <Text style={styles.texttop}>ไดอารี่วันที่ {this.day} ของฉัน</Text>
+            <Text style={styles.texttop}>เขียนไดอารี่ของวันที่ {diary_size+1}</Text>
           </View>
 
           <View style={styles.textrow}>
@@ -31,7 +60,7 @@ export default class DiaryFormScreen extends React.Component {
               style={{marginHorizontal: 5,paddingVertical: 5,}}
             />
             <Text style={styles.textinbox}>
-              Day {this.day}
+              Day {diary_size+1}
             </Text>
           </View>
 
@@ -80,10 +109,19 @@ export default class DiaryFormScreen extends React.Component {
           </View>
           
           <View style={{marginTop:50,marginBottom:70,}}>
-            <TouchableOpacity  style={styles.button2}>
-            <Text style={{fontSize:16, fontWeight:'bold'}}>
-              บันทึกไดอารี่
-            </Text>
+            <TouchableOpacity  style={styles.button2} onPress={()=>{
+              let diarySetRef = firebase.database().ref(`diaries/${diary_key?diary_key:''}/diary_set`)
+              diarySetRef.push({
+                diary_create: Date.now(),
+                diary_day: diary_size+1,
+                diary_content: this.state.description  
+              })
+              .then(res => Alert.alert("สร้างไดอารี่ของวันนี้เรียบร้อย"))
+              .catch(err => alert("เกิดข้อผิดพลาด ไม่สามารถเพิ่มไดอารี่ของคุณได้"))
+            }}>
+              <Text style={{fontSize:16, fontWeight:'bold'}}>
+                บันทึกไดอารี่
+              </Text>
           </TouchableOpacity>
           </View>
           
