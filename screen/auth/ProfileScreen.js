@@ -1,21 +1,52 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Image,  StyleSheet, Text, View, ScrollView} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { connect } from 'react-redux'
+import { signOut } from '../../redux/app-redux'
 import CompletedChallenge from '../../components/CompletedChallenge'
+import * as firebase from 'firebase'
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
 
-export default function ProfileScreen({navigation}) {
+const mapDispatchToProps = dispatch => {
+  return {
+    //setUser: providerData => dispatch(setUser(providerData)),  
+    signOut: () => dispatch(signOut())
+  }
+}
+
+class ProfileScreen extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  signOUtFacebook = async () => {
+    firebase.auth().signOut()
+    .then((res)=>{
+      this.props.signOut()
+      console.log(res)
+    })
+    .catch((err)=>console.log(err))
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    if(prevProps.user !== this.props.user){
+      console.log('user ',this.props.user)
+    }
+  }
+  render(){
+    console.log(this.props.user)
     return (
     <ScrollView >
-      <View style={styles.headerContainer}>
-        <View>
-          <Image
-            style={styles.userImage}
-            source={require('../../assets/avatar.png')} 
-          />
-          </View>
-      </View>
+      <View style={styles.headerContainer}></View>
+      <Image
+        source={this.props.user?{uri:`${this.props.user.photoURL}?height=200`}:{uri:'https://thaizzle.com/wp-content/uploads/2017/03/blank-user-360x360.png'}}
+        style={styles.avatar}
+      />
       <View style={styles.userRow}>
         <View style={styles.userNameRow}>
           <FontAwesome5
@@ -25,7 +56,7 @@ export default function ProfileScreen({navigation}) {
             name="user"
             style={{marginHorizontal: 10,paddingVertical: 5,}}
           />
-          <Text style={styles.userNameText}>Chatchaya Innarong</Text>
+          <Text style={styles.userNameText}>{this.props.user?this.props.user.displayName:''}</Text>
         </View>
 
         <View style={styles.userWeightRow}>
@@ -49,13 +80,7 @@ export default function ProfileScreen({navigation}) {
             {/* <Text style={styles.userBioText}>น้ำหนักเป้าหมาย</Text> */}
         </View>
 
-        <TouchableOpacity  style={styles.buttonEditProfile}>
-          <Text style={{fontSize:16, fontWeight:'bold'}}>
-            แก้ไขโปรไฟล์
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity  style={styles.buttonLogOut}>
+        <TouchableOpacity  style={styles.buttonLogOut} onPress={this.signOUtFacebook}>
           <Text style={{fontSize:18, fontWeight:'bold'}}>
             ออกจากระบบ
           </Text>
@@ -91,12 +116,16 @@ export default function ProfileScreen({navigation}) {
       </View>
 
       <CompletedChallenge/>
+      <CompletedChallenge/>
+      <CompletedChallenge/>
 
       
     </ScrollView>
 
     );
+    }
   }
+  export default connect(mapStateToProps,mapDispatchToProps)(ProfileScreen)
   
   const styles = StyleSheet.create({
     cardContainer: {
@@ -110,6 +139,18 @@ export default function ProfileScreen({navigation}) {
       backgroundColor: '#A0D1F7', //blue color
       margin: 0,
       paddingTop: 80,
+      height:190,
+    },
+    avatar: {
+      width: 180,
+      height:180,
+      borderRadius: 100,
+      borderWidth: 4,
+      borderColor: "white",
+      marginBottom:10,
+      alignSelf:'center',
+      position: 'absolute',
+      marginTop:100
     },
     userBioText: {
       color: 'gray',
@@ -165,7 +206,7 @@ export default function ProfileScreen({navigation}) {
       alignItems: 'center',
       flexDirection: 'column',
       justifyContent: 'center',
-      marginTop: 90,
+      marginTop: 110,
       marginBottom: 12,
     },
     buttonEditProfile: {

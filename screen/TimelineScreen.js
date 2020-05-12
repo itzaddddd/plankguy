@@ -20,6 +20,7 @@ export default function HomeScreen({navigation}) {
     diaryContainer: {
       flex: 1,
       backgroundColor: '#C0E3FF',
-      paddingVertical: 40,
+      paddingTop: 40,
+      paddingBottom: 200,
     },
   });

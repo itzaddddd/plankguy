@@ -1,10 +1,55 @@
 import React from 'react';
-import { Image, StyleSheet, Text,  View, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, Text,  View, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import SignUpScreen from './Signup.Screen';
 
-export default class LoginScreen extends React.Component {
+import * as Facebook from 'expo-facebook'
+import * as firebase from 'firebase'
+import { connect } from 'react-redux'
+import { setUser } from '../../redux/app-redux'
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUser: providerData => dispatch(setUser(providerData))  
+  }
+}
+class LoginScreen extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      user: undefined
+    }
+  }
+
+  loginWithFacebook = async () => {
+    await Facebook.initializeAsync('242743737044656');
+    const {type, token} = await Facebook.logInWithReadPermissionsAsync('242743737044656',{
+      permissions:['public_profile']
+    })
+
+    if(type == 'success'){
+      const credential = firebase.auth.FacebookAuthProvider.credential(token)
+      firebase.auth().signInWithCredential(credential)
+      .catch(err => console.log(err))
+    }
+  }
+
+
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user => {
+      if(user !== null){
+        this.props.setUser(user.providerData[0])
+        console.log(user)
+      }
+    })
+  }
   render() {
+    let { user } = this.state
     return (
       <View style={styles.container}>
         
@@ -14,6 +59,9 @@ export default class LoginScreen extends React.Component {
               </View> */}
               <Text style={styles.header}>
                 ยินดีต้อนรับ
+              </Text>
+              <Text>
+                {this.props.user?this.props.user.displayName:''}
               </Text>
               <Text style={styles.text1}>
                 ร่วมแปลงกายกับเรา
@@ -34,28 +82,11 @@ export default class LoginScreen extends React.Component {
           <Icon.Button
             name="facebook"
             backgroundColor="#3b5998"
-            // onPress={this.loginWithFacebook}
+            onPress={this.loginWithFacebook}
             {...iconStyles}
           >
-            Facebook
-          </Icon.Button>
-          <Icon.Button
-            name="google"
-            backgroundColor="#DD4B39"
-            // onPress={this.loginWithGoogle}
-            {...iconStyles}
-          >
-            Google
-          </Icon.Button>
-          <Icon.Button
-            name="twitter"
-            backgroundColor="#50ABF1"
-            // onPress={this.loginWithGoogle}
-            {...iconStyles}
-          >
-            Twitter
-          </Icon.Button>
-          
+            เข้าสู่ระบบด้วย Facebook
+          </Icon.Button>    
         </View>
 
         <View style={styles.content2}>
@@ -72,6 +103,8 @@ export default class LoginScreen extends React.Component {
       </View>
     );}
   }
+
+  export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
   
   const iconStyles = {
     borderRadius: 10,
@@ -140,7 +173,7 @@ export default class LoginScreen extends React.Component {
 
     buttonLogin: {
       // color: '#79B6E6',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       flexDirection: 'row',
       marginLeft: 20,
       marginRight: 20,
