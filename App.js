@@ -22,6 +22,8 @@ import MyWorkOutScreen from './screen/workout/MyWorkoutScreen'
 import DiaryPageScreen from './screen/diary/DiaryPageScreen'
 import DiaryFormScreen from './screen/diary/DiaryFormScreen'
 import SelectChallenge from './screen/eating/SelectChallenge'
+import DetailEatChallenge from './screen/eating/DetailEatChallenge'
+import DailyEatingDetailScreen from './screen/eating/DailyEatingDetailScreen'
 
 const Drawer = createDrawerNavigator()
 
@@ -58,6 +60,8 @@ export default function App() {
           <Drawer.Screen name="DiaryForm" component={DiaryFormScreen} options={{title:"เขียนไดอารี่"}} />
           <Drawer.Screen name="DiaryPage" component={DiaryPageScreen} options={{title:"หน้าแสดงไดอารี่"}} />
           <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"Test"}} />
+          <Drawer.Screen name="DetailEatChallenge" component={DetailEatChallenge} options={{title:"Test1"}} />
+          <Drawer.Screen name="DailyEatingDetailScreen" component={DailyEatingDetailScreen} options={{title:"Test2"}} />
         </Drawer.Navigator>
       </NavigationContainer>
     </Provider> 
