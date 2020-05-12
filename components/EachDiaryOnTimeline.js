@@ -13,6 +13,7 @@ export default class EachDiary extends React.Component {
         this.state = {
             userPic: "",
             userName: "",
+            day: "",
             diaryTime: "",
             diaryContent: "",
         };
@@ -22,6 +23,7 @@ export default class EachDiary extends React.Component {
         //สมมติข้อมูล
         this.userPic = <Image style={styles.userImage} source={require('../assets/avatar.png')}/>,
         this.userName = "ส้มหยุด",
+        this.day = "1",
         this.diaryTime = "17.07",
         this.diaryContent = "วันนี้... คุณทำความดีแล้วรึยัง ? ฉันทำแล้วล่ะ ฉันทำส้มหยุดให้คนดู ส้มหยุด ส้มหยุด ส้มหยุด ส้มหยุด ส้มหยุด ส้มหยุด ส้มหยุด ส้มหยุด"
 
@@ -33,6 +35,9 @@ export default class EachDiary extends React.Component {
                         {this.userPic}
                         <Text style={styles.userName}>
                             {this.userName}
+                        </Text>
+                        <Text style={styles.day} >
+                            Day {this.day}
                         </Text>
                         <Text style={styles.diaryTime}>
                             {this.diaryTime}
@@ -105,6 +110,14 @@ export default class EachDiary extends React.Component {
         textShadowOffset: {width:0.5,height:-1},
         textShadowColor: '#5A5B5B',
         textShadowRadius: 1,
+    },
+    day: {
+        alignContent: 'flex-end',
+        alignItems: 'flex-end',
+        textAlignVertical: 'center',
+        marginLeft: 5,
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     diaryTime: {
         alignContent: 'flex-end',

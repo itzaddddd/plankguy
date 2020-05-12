@@ -1,131 +1,139 @@
 import React, {Component} from 'react';
-import {Image,  StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Image,  StyleSheet, Text, View, ScrollView, YellowBox} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { connect } from 'react-redux'
-import { signOut } from '../../redux/app-redux'
 import CompletedChallenge from '../../components/CompletedChallenge'
 import * as firebase from 'firebase'
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    //setUser: providerData => dispatch(setUser(providerData)),  
-    signOut: () => dispatch(signOut())
-  }
-}
 
 class ProfileScreen extends Component {
   constructor(props){
     super(props)
+    this.state = {
+      user: null
+    }
+    YellowBox.ignoreWarnings(['Warning: Each']);
+
+
   }
 
-  signOUtFacebook = async () => {
+  signOutFacebook = async () => {
     firebase.auth().signOut()
-    .then((res)=>{
-      this.props.signOut()
-      console.log(res)
-    })
     .catch((err)=>console.log(err))
   }
 
-  componentDidUpdate(prevProps,prevState){
-    if(prevProps.user !== this.props.user){
-      console.log('user ',this.props.user)
-    }
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user => {
+      if(user !== null){
+        // let userData = user.providerData[0]
+        // firebase.database().ref(`users/${userData.uid}`).set({
+        //   name: userData.displayName,
+        //   email: userData.email,
+        //   photo: userData.photoURL
+        // })
+        this.setState({user:user.providerData[0]})
+      }else{
+        this.setState({user:null})
+      }
+    })
   }
+
   render(){
-    console.log(this.props.user)
+    let {user} = this.state
+    if(user){
+      return (
+        <ScrollView >
+          <View style={styles.headerContainer}></View>
+          <Image
+            source={{uri:`${user.photoURL}?height=200`}}
+            style={styles.avatar}
+          />
+          <View style={styles.userRow}>
+            <View style={styles.userNameRow}>
+              <FontAwesome5
+                size={20}
+                color="#000"
+                solid
+                name="user"
+                style={{marginHorizontal: 10,paddingVertical: 5,}}
+              />
+              <Text style={styles.userNameText}>{user.displayName}</Text>
+            </View>
+    
+            <View style={styles.userWeightRow}>
+              <FontAwesome5
+                size={20}
+                type="entypo"
+                color="#000"
+                name="weight"
+                style={{marginHorizontal: 6,paddingVertical: 5,}}
+              />
+              <Text style={styles.userWeightText}>น้ำหนักเริ่มต้น</Text>
+                
+              <FontAwesome5
+                size={20}
+                type="entypo"
+                color="#000"
+                name="weight"
+                style={{marginHorizontal: 6,paddingVertical: 5,}}
+              />
+              <Text style={styles.userWeightText}>น้ำหนักเป้าหมาย</Text>
+                {/* <Text style={styles.userBioText}>น้ำหนักเป้าหมาย</Text> */}
+            </View>
+    
+            <TouchableOpacity  style={styles.buttonLogOut} onPress={this.signOutFacebook}>
+              <Text style={{fontSize:18, fontWeight:'bold'}}>
+                ออกจากระบบ
+              </Text>
+            </TouchableOpacity>
+          </View>
+    
+          <View
+            style={{
+              borderBottomColor: '#5B5A5A',
+              borderBottomWidth: 2,
+              marginTop: 30,
+              marginHorizontal:40,
+            }}/>
+    
+          <View
+            style={{
+              borderBottomColor: '#5B5A5A',
+              borderBottomWidth: 2,
+              marginVertical: 20,
+              marginHorizontal:100,
+              paddingBottom:5,
+            }}>
+              <Text style ={{
+                textAlign:'center',
+                fontWeight:'bold',
+                fontSize:20,
+                textShadowColor: '#5B5A5A',
+                textShadowRadius: 3,
+                textShadowOffset: {width:1,height:1},
+              }}>
+                ชาเลนจ์ที่ทำสำเร็จ
+              </Text>
+          </View>
+    
+          <CompletedChallenge/>
+          <CompletedChallenge/>
+          <CompletedChallenge/>
+    
+          
+        </ScrollView>
+    
+        );
+    }
+
     return (
-    <ScrollView >
-      <View style={styles.headerContainer}></View>
-      <Image
-        source={this.props.user?{uri:`${this.props.user.photoURL}?height=200`}:{uri:'https://thaizzle.com/wp-content/uploads/2017/03/blank-user-360x360.png'}}
-        style={styles.avatar}
-      />
-      <View style={styles.userRow}>
-        <View style={styles.userNameRow}>
-          <FontAwesome5
-            size={20}
-            color="#000"
-            solid
-            name="user"
-            style={{marginHorizontal: 10,paddingVertical: 5,}}
-          />
-          <Text style={styles.userNameText}>{this.props.user?this.props.user.displayName:''}</Text>
-        </View>
-
-        <View style={styles.userWeightRow}>
-          <FontAwesome5
-            size={20}
-            type="entypo"
-            color="#000"
-            name="weight"
-            style={{marginHorizontal: 6,paddingVertical: 5,}}
-          />
-          <Text style={styles.userWeightText}>น้ำหนักเริ่มต้น</Text>
-            
-          <FontAwesome5
-            size={20}
-            type="entypo"
-            color="#000"
-            name="weight"
-            style={{marginHorizontal: 6,paddingVertical: 5,}}
-          />
-          <Text style={styles.userWeightText}>น้ำหนักเป้าหมาย</Text>
-            {/* <Text style={styles.userBioText}>น้ำหนักเป้าหมาย</Text> */}
-        </View>
-
-        <TouchableOpacity  style={styles.buttonLogOut} onPress={this.signOUtFacebook}>
-          <Text style={{fontSize:18, fontWeight:'bold'}}>
-            ออกจากระบบ
-          </Text>
-        </TouchableOpacity>
+      <View>
+        <Text>กรุณาเข้าสู่ระบบ</Text>
       </View>
-
-      <View
-        style={{
-          borderBottomColor: '#5B5A5A',
-          borderBottomWidth: 2,
-          marginTop: 30,
-          marginHorizontal:40,
-        }}/>
-
-      <View
-        style={{
-          borderBottomColor: '#5B5A5A',
-          borderBottomWidth: 2,
-          marginVertical: 20,
-          marginHorizontal:100,
-          paddingBottom:5,
-        }}>
-          <Text style ={{
-            textAlign:'center',
-            fontWeight:'bold',
-            fontSize:20,
-            textShadowColor: '#5B5A5A',
-            textShadowRadius: 3,
-            textShadowOffset: {width:1,height:1},
-          }}>
-            ชาเลนจ์ที่ทำสำเร็จ
-          </Text>
-      </View>
-
-      <CompletedChallenge/>
-      <CompletedChallenge/>
-      <CompletedChallenge/>
-
-      
-    </ScrollView>
-
-    );
+    )
+    
     }
   }
-  export default connect(mapStateToProps,mapDispatchToProps)(ProfileScreen)
+  export default ProfileScreen
   
   const styles = StyleSheet.create({
     cardContainer: {
