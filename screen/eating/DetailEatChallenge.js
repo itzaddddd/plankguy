@@ -4,9 +4,19 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import NavigationBar from 'react-native-navbar';
 
-export default class EatChallengeScreen extends React.Component  {
-  
+export default class DetailEatChallenge extends React.Component  {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Topic: "",
+            Description: "",
+        };
+    }
+
     render() {
+        //สมมติข้อมูล
+        this.Topic = "ชาเลนจ์การกิน รูปแบบเพื่อสุขภาพที่ดี",
+        this.Description = "ผักและผลไม้ 2 กำต่อมื้อ\nโปรตีน 2 ฝ่ามือต่อมื้อ\nนม 1 แก้วต่อมื้อ"
     return (
       <ScrollView>
         {/* <NavigationBar
@@ -28,29 +38,33 @@ export default class EatChallengeScreen extends React.Component  {
             <Text style={styles.body}>ชาเลนจ์การกินของคุณ</Text>
           </View>
           <Text>{"\n"}</Text>
-          <TouchableOpacity style={styles.container4} onPress={() => this.props.navigation.navigate('SelectChallenge')}>
-            <Text style={styles.body2}><Image 
-            source={require('../../assets/cross.png')}  
-            style={{width:50, height: 50}} 
-            />
-            {"\n"}
-            {"\n"}
-            {"\n"}
-            <Text>
-              คุณยังไม่มีชาเลนจ์ โปรดเลือกชาเลนจ์ของคุณ
+          <View style={styles.container4}>
+            <Text style={styles.body3}>
+              {this.Topic}
             </Text>
-            </Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.cancel}>
+                <Text style={styles.cancelText}>ยกเลิก</Text>
+            </TouchableOpacity>
+          </View>
           <Text>{"\n"}</Text>
           <View style={styles.container3}>
             <Text style={styles.body}>อาหารที่ทาน</Text>
           </View>
           <Text>
           {"\n"}
-          {"\n"}
-          {"\n"}
           </Text>
-          <TouchableOpacity style={styles.submit}>
+          <View style={styles.container4}>
+              <Text style={{fontSize:20,textAlign:"center",marginTop:10}}>
+                รายการอาหารที่แนะนำ
+              </Text>
+              <Text style={{marginLeft:20,paddingBottom:10}}>
+                 {this.Description}
+              </Text>
+          </View>
+          <Text>
+              {"\n"}
+          </Text>
+          <TouchableOpacity style={styles.submit} onPress={()=> this.props.navigation.navigate('SelectChallenge')}>
           <Image source={require('../../assets/plus.png')}  
             style={{width:20, height: 20}}/>
           <Text style={styles.submitText}>บันทึกรายการอาหารที่ทาน</Text>
@@ -96,7 +110,6 @@ export default class EatChallengeScreen extends React.Component  {
     },
     container4: {
       width: 310,
-      height:150,
       backgroundColor: '#fff',
       alignContent: 'center',
       flexDirection: 'column',
@@ -125,6 +138,15 @@ export default class EatChallengeScreen extends React.Component  {
       fontSize: 15,
       // fontFamily: 'K2D'
     },
+    body3:{
+        textAlign:"center",
+        marginTop:10,
+        marginRight:10,
+        marginLeft:10,
+        flexDirection: 'column',
+        fontSize: 20,
+        // fontFamily: 'K2D'
+      },
     title: {
       textAlign: 'center',
       marginVertical: 8,
@@ -142,6 +164,22 @@ export default class EatChallengeScreen extends React.Component  {
       justifyContent: 'center',
     },
     submitText:{
+        color:'#fff',
+        textAlign:'center',
+    },
+    cancel:{
+        marginTop:20,
+      paddingTop:17,
+      paddingBottom:17,
+      backgroundColor:'red',
+      borderBottomStartRadius:17,
+      borderBottomEndRadius:17,
+      borderColor: '#fff',
+      justifyContent: 'center',
+      textAlign:'center',
+      alignItems:"center"
+    },
+    cancelText:{
         color:'#fff',
         textAlign:'center',
     }
