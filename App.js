@@ -20,8 +20,8 @@ import EditProfileScreen from './screen/auth/EditProfileScreen'
 import WorkoutDetailScreen from './screen/workout/WorkoutDetailScreen'
 import MyWorkOutScreen from './screen/workout/MyWorkoutScreen'
 import DiaryPageScreen from './screen/diary/DiaryPageScreen'
-import SelectChallenge from './screen/eating/SelectChallenge'
 import DiaryFormScreen from './screen/diary/DiaryFormScreen'
+import SelectChallenge from './screen/eating/SelectChallenge'
 
 const Drawer = createDrawerNavigator()
 
@@ -39,27 +39,28 @@ const firebaseConfig = {
 if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Timeline" drawerStyle={style.drawer}>
-        <Drawer.Screen name="Timeline" component={TimelineScreen} options={{title:"หน้าหลัก"}} />
-        <Drawer.Screen name="MyDiary" component={MyDiaryScreen} options={{title:"ไดอารี่ของฉัน"}} />
-        <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
-        <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
-        <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
-        <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
+    <Provider store={store}>
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Timeline" drawerStyle={style.drawer}>
+          <Drawer.Screen name="Timeline" component={TimelineScreen} options={{title:"หน้าหลัก"}} />
+          <Drawer.Screen name="MyDiary" component={MyDiaryScreen} options={{title:"ไดอารี่ของฉัน"}} />
+          <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
+          <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
+          <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
+          <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
 
-        <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
-        <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
-        <Drawer.Screen name="EditProfile" component={EditProfileScreen} options={{title:"แก้ไขโปรไฟล์"}} />
-        <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
-        <Drawer.Screen name="MyWorkout" component={MyWorkOutScreen} options={{title:"การออกกำลังกายของฉัน"}} />        
-        
-
-        <Drawer.Screen name="DiaryForm" component={DiaryFormScreen} options={{title:"เขียนไดอารี่"}} />
-        <Drawer.Screen name="DiaryPage" component={DiaryPageScreen} options={{title:"หน้าแสดงไดอารี่"}} />
-        <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"Test"}} />
-      </Drawer.Navigator>
-    </NavigationContainer> 
+          <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
+          <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
+          <Drawer.Screen name="EditProfile" component={EditProfileScreen} options={{title:"แก้ไขโปรไฟล์"}} />
+          <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
+          <Drawer.Screen name="MyWorkout" component={MyWorkOutScreen} options={{title:"การออกกำลังกายของฉัน"}} />        
+          
+          <Drawer.Screen name="DiaryForm" component={DiaryFormScreen} options={{title:"เขียนไดอารี่"}} />
+          <Drawer.Screen name="DiaryPage" component={DiaryPageScreen} options={{title:"หน้าแสดงไดอารี่"}} />
+          <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"Test"}} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </Provider> 
   );
 }
 
