@@ -1,9 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase'
 
-import { Provider } from 'react-redux'
-import { store } from './redux/app-redux'
-
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
@@ -39,7 +36,6 @@ const firebaseConfig = {
 if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
 export default function App() {
   return (
-    <Provider store={store}>
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Timeline" drawerStyle={style.drawer}>
           <Drawer.Screen name="Timeline" component={TimelineScreen} options={{title:"หน้าหลัก"}} />
@@ -62,7 +58,6 @@ export default function App() {
         <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"Test"}} />
       </Drawer.Navigator>
     </NavigationContainer>
-    </Provider> 
   );
 }
 
