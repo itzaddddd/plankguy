@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image,  StyleSheet, Text, View, ScrollView, TextInput, Button} from 'react-native';
+import {Image,  StyleSheet, Text, View, ScrollView, TextInput} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -62,20 +62,31 @@ export default class DiaryFormScreen extends React.Component {
                 เพิ่มรูปภาพ
               </Text>
             </TouchableOpacity>
-          </View>
 
-          <View style={styles.boximage}>
-            <Image style={styles.tinyimage}
-              source={require('../../assets/image.png')}
-            />
+            <View style={styles.boximage}>
+              {/* <Image style={styles.tinyimage}
+                source={require('../../assets/image.png')}
+              />
+              <Image style={styles.tinyimage}
+                source={require('../../assets/cup.png')}
+              />
+              <Image style={styles.tinyimage}
+                source={require('../../assets/avatar.png')}
+              />
+              <Image style={styles.tinyimage}
+                source={require('../../assets/plate.png')}
+              /> */}
+            </View>
           </View>
           
-
-          <TouchableOpacity  style={styles.button}>
+          <View style={{marginTop:50,marginBottom:70,}}>
+            <TouchableOpacity  style={styles.button2}>
             <Text style={{fontSize:16, fontWeight:'bold'}}>
               บันทึกไดอารี่
             </Text>
           </TouchableOpacity>
+          </View>
+          
         </View>
       </ScrollView>
     );} 
@@ -102,18 +113,22 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 2,
     borderColor: '#A0D1F7',
+    borderRadius: 10,
     flex: 1,
     justifyContent: 'center',
     },
   tinyimage: {
-    marginHorizontal: 10,
-    width: 70,
-    height: 70,
+    marginVertical:5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
+    width: 90,
+    height: 90,
   },
   boximage: {
     flexDirection: 'row', 
     justifyContent: 'center',
-    width: 350,
+    flexWrap: 'wrap',
+    
   },
   textinbox: {
     paddingHorizontal: 10,
@@ -123,9 +138,20 @@ const styles = StyleSheet.create({
     width: 277,
     fontSize: 16,
   },
-  texttopimage: {
+  ImageBox: {
     textAlign: 'left',
+    borderColor: '#5A5B5B',
+    borderWidth: 2,
+    borderRadius: 10,
+    paddingHorizontal:'5%',
+  },
+  texttopimage: {
+    textAlign: 'center',
     margin: 10,
+    fontSize: 18,
+    fontWeight:'bold',
+    paddingHorizontal: 50,
+
   },
   texttop: {
     fontSize: 20,
@@ -148,8 +174,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     borderRadius: 20,
+    alignSelf: 'center',
   },
-  ImageBox: {
-    textAlign: 'left',
+  button2: {
+    marginTop: 50,
+    marginBottom: 50,
+    backgroundColor: '#79B6E6',
+    elevation: 2, 
+    height: 40,
+    width: 140,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderRadius: 20,
+    alignSelf: 'center',
   },
 })
