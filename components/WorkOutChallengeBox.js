@@ -11,7 +11,6 @@ export default function WorkOutChallenge({navigation}) {
             </View>
             <View >
                 <WorkOut/>
-                <WorkOut/>
             </View>
         </View>
         

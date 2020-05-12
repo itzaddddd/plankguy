@@ -5,9 +5,6 @@ import ECC2 from '../../components/EatCompletedChallenge2';
 import ECC3 from '../../components/EatCompletedChallenge3';
 
 export default class SelectChallenge extends React.Component {
-    static navigationOptions = {
-        title: "Profile"
-    }
     render(){
     return (
       <ScrollView>

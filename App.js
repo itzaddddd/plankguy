@@ -21,6 +21,7 @@ import DiaryFormScreen from './screen/diary/DiaryFormScreen'
 import SelectChallenge from './screen/eating/SelectChallenge'
 import DetailEatChallenge from './screen/eating/DetailEatChallenge'
 import DailyEatingDetailScreen from './screen/eating/DailyEatingDetailScreen'
+import DailyEatingScreen from './screen/eating/DailyEatingScreen'
 import WorkoutFormScreen from './screen/workout/WorkoutFormScreen'
 import UpdateWorkOut from './components/UpdateWorkOut'
 
@@ -48,9 +49,13 @@ export default function App() {
           <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
           <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
           <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
+    
+          <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
 
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
           <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
+          
+          
           <Drawer.Screen name="MyWorkout" component={MyWorkOutScreen} options={{title:"การออกกำลังกายของฉัน"}} />        
           <Drawer.Screen name="WorkOutForm" component={WorkoutFormScreen} options={{title:"บันทึกผลการออกกำลังกาย"}} />
           <Drawer.Screen name="UpdateWorkOut" component={UpdateWorkOut} options={{title:"อัปเดตการออกกำลังกาย"}}/>
@@ -59,6 +64,7 @@ export default function App() {
           <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"Test"}} />
           <Drawer.Screen name="DetailEatChallenge" component={DetailEatChallenge} options={{title:"Test1"}} />
           <Drawer.Screen name="DailyEatingDetailScreen" component={DailyEatingDetailScreen} options={{title:"Test2"}} />
+          <Drawer.Screen name="DailyEatingScreen" component={DailyEatingScreen} options={{title:"Test3"}} />
         </Drawer.Navigator>
       </NavigationContainer>
   );
