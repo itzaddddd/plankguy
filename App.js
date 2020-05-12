@@ -1,4 +1,9 @@
 import React from 'react';
+import * as firebase from 'firebase'
+
+import { Provider } from 'react-redux'
+import { store } from './redux/app-redux'
+
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
@@ -12,24 +17,37 @@ import LoginScreen from './screen/auth/LoginScreen'
 import SignUpScreen from './screen/auth/Signup.Screen'
 import ProfileScreen from './screen/auth/ProfileScreen'
 import EditProfileScreen from './screen/auth/EditProfileScreen'
-
 const Drawer = createDrawerNavigator()
+
+// Your web app's Firebase configuratio
+const firebaseConfig = {
+  apiKey: "AIzaSyDpKsn8awo4wKvjZ2a_pAGxB-tcuE6aWr4",
+  authDomain: "plankguy-5555.firebaseapp.com",
+  databaseURL: "https://plankguy-5555.firebaseio.com",
+  projectId: "plankguy-5555",
+  storageBucket: "plankguy-5555.appspot.com",
+  messagingSenderId: "639160082860",
+  appId: "1:639160082860:web:993de85ecbbd1012ba5a09"
+};
+// Initialize Firebase
+if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Timeline" drawerStyle={style.dreawer}>
-        <Drawer.Screen name="Timeline" component={TimelineScreen} options={{title:"หน้าหลัก"}} />
-        <Drawer.Screen name="MyDiary" component={MyDiaryScreen} options={{title:"ไดอารี่ของฉัน"}} />
-        <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
-        <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
-        <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
-        <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
-        <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
-        <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
-        <Drawer.Screen name="EditProfile" component={EditProfileScreen} options={{title:"แก้ไขโปรไฟล์"}} />
-
-      </Drawer.Navigator>
-    </NavigationContainer> 
+    <Provider store={store}>
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Timeline" drawerStyle={style.dreawer}>
+          <Drawer.Screen name="Timeline" component={TimelineScreen} options={{title:"หน้าหลัก"}} />
+          <Drawer.Screen name="MyDiary" component={MyDiaryScreen} options={{title:"ไดอารี่ของฉัน"}} />
+          <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
+          <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
+          <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
+          <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
+          <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
+          <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
+          <Drawer.Screen name="EditProfile" component={EditProfileScreen} options={{title:"แก้ไขโปรไฟล์"}} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </Provider> 
   );
 }
 

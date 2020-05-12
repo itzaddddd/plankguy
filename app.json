@@ -23,6 +23,22 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [{
+            "scheme": "oauthlogin"
+          }],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "scheme":"oauthlogin"
+    
   }
 }
