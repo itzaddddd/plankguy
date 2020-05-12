@@ -1,11 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ViewBase } from 'react-native';
 import WorkOutChallenge from '../../components/WorkOutChallengeBox'
-<<<<<<< HEAD
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-=======
-import { ScrollView } from 'react-native-gesture-handler';
->>>>>>> 87a53cf2f04ce4bb8fd7ccb631ab4c306392a3d9
 
 export default function WorkoutChallengeScreen({navigation}) {
     return (
@@ -22,18 +18,11 @@ export default function WorkoutChallengeScreen({navigation}) {
               </View>
             </View>
 
-<<<<<<< HEAD
           <TouchableOpacity onPress={()=> navigation.navigate('MyWorkout')}>
             <WorkOutChallenge />
           </TouchableOpacity>
       </View>
-=======
-            <View>
-              <WorkOutChallenge />
-            </View>
-        </View>
       </ScrollView>
->>>>>>> 87a53cf2f04ce4bb8fd7ccb631ab4c306392a3d9
     );
   }
   

@@ -17,7 +17,6 @@ export default class WorkOutChallenge extends React.Component {
         this.challengeName = "สำหรับคนที่ต้องการลดความอ้วน"
 
     return (
-<<<<<<< HEAD
             <View style={styles.challengeSelection}>
                 <View>
                     <Text style={styles.number}>รูปแบบที่ {this.number}</Text>
@@ -26,16 +25,6 @@ export default class WorkOutChallenge extends React.Component {
                     </Text>
                 </View>
             </View>
-=======
-        <View style={styles.challengeSelection}>
-            <TouchableOpacity /*onPress={() => this.props.navigation.navigate("WorkoutDetailScreen")}*/>
-                <Text style={styles.number}>รูปแบบที่ {this.number}</Text>
-                <Text style={styles.challengeName}>
-                    {this.challengeName}
-                </Text>
-            </TouchableOpacity>
-        </View>
->>>>>>> 87a53cf2f04ce4bb8fd7ccb631ab4c306392a3d9
         
     );}
 }
