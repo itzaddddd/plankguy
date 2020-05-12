@@ -10,8 +10,6 @@ export default class WorkoutFormScreen extends React.Component  {
     constructor(props) {
       super(props);
       this.state = {
-        Statusbar1: "",
-        Statusbar2: "",
         show1: false,
         show2: false,
         number: "",
@@ -38,11 +36,6 @@ export default class WorkoutFormScreen extends React.Component  {
 
     render() {
       //สมมติข้อมูล
-      this.Statusbar1 = "ยังไม่ได้บันทึก",
-      this.Statusbar2 = "ยังไม่ได้บันทึก",
-      this.Statusbar3 = "ยังไม่ได้บันทึก",
-      this.Statusbar4 = "ยังไม่ได้บันทึก"
-
       this.number = 1,
       this.challengeName = "สำหรับคนที่ต้องการลดความอ้วน"
     return (
@@ -161,65 +154,65 @@ export default class WorkoutFormScreen extends React.Component  {
     }
   }
   
-  const styles = StyleSheet.create({
-    container: {
-      flex:1,
-      paddingTop:50,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    headerWorkOut: {
-      width: 310,
-      height:100,
-      alignContent: 'center',
-      flexDirection: 'row',
-      marginTop: 50,
-    },
-    Header:{
-      fontSize: 30,
-      fontWeight: 'bold',
-      color: '#5A5B5B',
-      // fontFamily: 'K2D'
-    },
-    Header2:{
-      fontSize: 15,
-      color: '#5A5B5B',
-      // fontFamily: 'K2D'
-    },
-    title: {
-      textAlign: 'center',
-      marginVertical: 8,
-    },
-    submit:{
-      paddingTop:20,
-      paddingRight: 15,
-      paddingLeft: 15,
-      paddingBottom:20,
-      backgroundColor:'#1a8cff',
-      borderRadius:30,
-      borderWidth: 1,
-      borderColor: '#fff',
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
-    submitText:{
-        color:'#fff',
-        textAlign:'center',
-    },
-    cancel:{
-        marginTop:20,
-      paddingTop:17,
-      paddingBottom:17,
-      backgroundColor:'red',
-      borderBottomStartRadius:17,
-      borderBottomEndRadius:17,
-      borderColor: '#fff',
-      justifyContent: 'center',
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    paddingTop:50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerWorkOut: {
+    width: 310,
+    height:100,
+    alignContent: 'center',
+    flexDirection: 'row',
+    marginTop: 50,
+  },
+  Header:{
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#5A5B5B',
+    // fontFamily: 'K2D'
+  },
+  Header2:{
+    fontSize: 15,
+    color: '#5A5B5B',
+    // fontFamily: 'K2D'
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  submit:{
+    paddingTop:20,
+    paddingRight: 15,
+    paddingLeft: 15,
+    paddingBottom:20,
+    backgroundColor:'#1a8cff',
+    borderRadius:30,
+    borderWidth: 1,
+    borderColor: '#fff',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  submitText:{
+      color:'#fff',
       textAlign:'center',
-      alignItems:"center"
-    },
-    cancelText:{
-        color:'#fff',
-        textAlign:'center',
-    }
-  });
+  },
+  cancel:{
+      marginTop:20,
+    paddingTop:17,
+    paddingBottom:17,
+    backgroundColor:'red',
+    borderBottomStartRadius:17,
+    borderBottomEndRadius:17,
+    borderColor: '#fff',
+    justifyContent: 'center',
+    textAlign:'center',
+    alignItems:"center"
+  },
+  cancelText:{
+      color:'#fff',
+      textAlign:'center',
+  }
+});
