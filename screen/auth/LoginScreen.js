@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text,  View, TouchableOpacity, Alert } from 'react-native';
+import { Image, StyleSheet, Text,  View, TouchableOpacity, Alert, YellowBox } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import * as Facebook from 'expo-facebook'
@@ -10,6 +10,7 @@ class LoginScreen extends React.Component {
     this.state = {
       user: null
     }
+    YellowBox.ignoreWarnings(['Warning: Each']);
   }
 
   loginWithFacebook = async () => {

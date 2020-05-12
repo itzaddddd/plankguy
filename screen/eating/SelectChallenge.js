@@ -1,12 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View , Image ,ScrollView } from 'react-native';
-import ECC from '../../components/EatCompletedChallenge';
+import ECC1 from '../../components/EatCompletedChallenge1';
+import ECC2 from '../../components/EatCompletedChallenge2';
+import ECC3 from '../../components/EatCompletedChallenge3';
+
 export default class SelectChallenge extends React.Component {
     static navigationOptions = {
         title: "Profile"
     }
     render(){
     return (
+      <ScrollView>
       <View style={styles.container}>
         <View style={styles.container2}>
             <Image 
@@ -15,12 +19,18 @@ export default class SelectChallenge extends React.Component {
             />
             <Text style={styles.Header}> ชาเลนจ์การกิน {"\n"}<Text style={styles.Header2}>เลือกชาเลนจ์การกิน และบันทึกการกิน</Text></Text>
           </View>
-          <Text>{"\n"}</Text>
           <View style={styles.container3}>
             <Text style={styles.body}>ชาเลนจ์การกินของคุณ</Text>
           </View>
-          <ECC/>
+          <ECC1/>
+          <ECC2/>
+          <ECC3/>
       </View>
+      <Text>
+      {"\n"}
+      {"\n"}
+      </Text>
+      </ScrollView>
     );
   }
 }

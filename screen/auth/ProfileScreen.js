@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image,  StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Image,  StyleSheet, Text, View, ScrollView, YellowBox} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CompletedChallenge from '../../components/CompletedChallenge'
@@ -11,6 +11,8 @@ class ProfileScreen extends Component {
     this.state = {
       user: null
     }
+    YellowBox.ignoreWarnings(['Warning: Each']);
+
 
   }
 
