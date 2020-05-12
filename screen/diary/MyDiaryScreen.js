@@ -3,10 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import EachDiary from '../../components/EachMyDiary';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Popup from '../../components/Popup'
-<<<<<<< HEAD
-=======
-
->>>>>>> feeb8de088c963d1ed7ea6c12baf8739cebf2233
 export default function MyDiaryScreen({navigation}) {
     return (
 
