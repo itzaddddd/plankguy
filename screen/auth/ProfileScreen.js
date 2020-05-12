@@ -99,7 +99,7 @@ class ProfileScreen extends Component {
         style={{
           borderBottomColor: '#5B5A5A',
           borderBottomWidth: 2,
-          marginVertical: 10,
+          marginVertical: 20,
           marginHorizontal:100,
           paddingBottom:5,
         }}>
@@ -107,13 +107,16 @@ class ProfileScreen extends Component {
             textAlign:'center',
             fontWeight:'bold',
             fontSize:20,
-            textShadowColor: 'gray',
-            textShadowRadius: 5,
+            textShadowColor: '#5B5A5A',
+            textShadowRadius: 3,
+            textShadowOffset: {width:1,height:1},
           }}>
             ชาเลนจ์ที่ทำสำเร็จ
           </Text>
       </View>
 
+      <CompletedChallenge/>
+      <CompletedChallenge/>
       <CompletedChallenge/>
 
       
@@ -148,44 +151,6 @@ class ProfileScreen extends Component {
       alignSelf:'center',
       position: 'absolute',
       marginTop:100
-    },
-    indicatorTab: {
-      backgroundColor: 'transparent',
-    },
-    scroll: {
-      backgroundColor: '#FFF', // gray 
-    },
-    sceneContainer: {
-      marginTop:10,
-    },
-    socialIcon: {
-      marginLeft: 14,
-      marginRight: 14,
-    },
-    socialRow: {
-      flexDirection: 'row',
-    },
-    tabBar: {
-      backgroundColor: '#EEE',
-    },
-    tabContainer: {
-      flex: 1,
-      marginBottom: 12,
-    },
-    tabLabelNumber: {
-      color: 'gray',
-      fontSize: 12.5,
-      textAlign: 'center',
-    },
-    tabLabelText: {
-      color: 'black',
-      fontSize: 22.5,
-      fontWeight: '600',
-      textAlign: 'center',
-    },
-    userBioRow: {
-      marginHorizontal: 40,
-      paddingHorizontal: 20,
     },
     userBioText: {
       color: 'gray',
@@ -257,7 +222,7 @@ class ProfileScreen extends Component {
   },
   buttonLogOut: {
       marginVertical: 10,
-      backgroundColor: '#79B6E6',
+      backgroundColor: '#CC0000',
       elevation: 2, 
       height: 40,
       width: 160,

@@ -1,42 +1,39 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Card from './CardComponent';
 
-export default function ProfileScreen({navigation}) {
+export default class ProfileScreen extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            missionName: "",
+            missionDetail: ""
+        };
+    }
+
+    render() {
+
+        this.missionName = "TEST",
+        this.missionDetail = "DETAIL TEST"
+       
     return (
         <View style={styles.missionRow}>
             <View style={styles.missionBox}>
                 <TouchableOpacity>
-                    <Text style={styles.missionName}>
-                    ภารกิจ ____
-                    </Text>
-                    <Text style={styles.missionDetail}>
-                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                    </Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.missionBox}>
-                <TouchableOpacity>
-                    <Text style={styles.missionName}>
-                        ภารกิจ ____
-                    </Text>
-                    <Text style={styles.missionDetail}>
-                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                    </Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.missionBox}>
-                <TouchableOpacity>
-                    <Text style={styles.missionName}>
-                        ภารกิจ ____
-                    </Text>
-                    <Text style={styles.missionDetail}>
-                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                    </Text>
+                    <Card>
+                        <Text style={styles.missionName}>
+                            {this.missionName}
+                        </Text>
+                        <Text style={styles.missionDetail}>
+                            {this.missionDetail}
+                        </Text>
+                    </Card>
                 </TouchableOpacity>
             </View>
         </View>    
-        );
+        );}
 }
 
 const styles = StyleSheet.create({
@@ -44,15 +41,15 @@ const styles = StyleSheet.create({
     missionRow: {
         marginHorizontal: 30,
     },
-    missionBox: {
-        borderStyle: 'solid',
-        borderWidth: 1.5,
-        borderColor: '#c6c6c6',
-        margin: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 5,
-        backgroundColor: '#d6d6d6',
-    },
+    // missionBox: {
+    //     borderStyle: 'solid',
+    //     borderWidth: 1.5,
+    //     borderColor: '#c6c6c6',
+    //     margin: 10,
+    //     paddingVertical: 10,
+    //     paddingHorizontal: 5,
+    //     backgroundColor: '#d6d6d6',
+    // },
     missionName: {
         fontSize: 16,
         fontWeight:'bold',
