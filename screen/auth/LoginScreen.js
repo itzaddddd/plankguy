@@ -1,29 +1,16 @@
 import React from 'react';
-import { Image, StyleSheet, Text,  View, TouchableOpacity, Alert } from 'react-native';
+import { Image, StyleSheet, Text,  View, TouchableOpacity, Alert, YellowBox } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import * as Facebook from 'expo-facebook'
 import * as firebase from 'firebase'
-import { connect } from 'react-redux'
-import { setUser } from '../../redux/app-redux'
-
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setUser: providerData => dispatch(setUser(providerData))  
-  }
-}
 class LoginScreen extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      user: undefined
+      user: null
     }
+    YellowBox.ignoreWarnings(['Warning: Each']);
   }
 
   loginWithFacebook = async () => {
@@ -43,68 +30,93 @@ class LoginScreen extends React.Component {
   componentDidMount(){
     firebase.auth().onAuthStateChanged(user => {
       if(user !== null){
-        this.props.setUser(user.providerData[0])
-        console.log(user)
+        // let userData = user.providerData[0]
+        // firebase.database().ref(`users/${userData.uid}`).set({
+        //   name: userData.displayName,
+        //   email: userData.email,
+        //   photo: userData.photoURL
+        // })
+        this.setState({user:user.providerData[0]})
+      }else{
+        this.setState({user:null})
       }
+    })
+
+    firebase.database().ref('users').on('value',data => {
+      console.log(data)
     })
   }
   render() {
-    let { user } = this.state
-    return (
-      <View style={styles.container}>
-        
-            <View style={styles.content}>
-              {/* <View style={styles.avatar}>
-                <Icon name="user-circle" size={100} color="rgba(0,0,0,.09)" />
-              </View> */}
-              <Text style={styles.header}>
-                ยินดีต้อนรับ
-              </Text>
-              <Text>
-                {this.props.user?this.props.user.displayName:''}
-              </Text>
-              <Text style={styles.text1}>
-                ร่วมแปลงกายกับเรา
-              </Text>
-              <Image 
-                source={require('../../assets/logo-plankguy.png')} 
-                style={styles.logoIcon} />
-              <Text style={styles.text1}>
-                  เข้าสู่ระบบ
-              </Text>
-              <Text style={styles.text2}>
-                  ด้วย
-              </Text>
+      let { user } = this.state
+      if(!user){
+        return (
+          <View style={styles.container}>
+            
+                <View style={styles.content}>
+                  {/* <View style={styles.avatar}>
+                    <Icon name="user-circle" size={100} color="rgba(0,0,0,.09)" />
+                  </View> */}
+                  <Text style={styles.header}>
+                    ยินดีต้อนรับ
+                  </Text>
+                  <Text>
+                    
+                  </Text>
+                  <Text style={styles.text1}>
+                    ร่วมแปลงกายกับเรา
+                  </Text>
+                  <Image 
+                    source={require('../../assets/logo-plankguy.png')} 
+                    style={styles.logoIcon} />
+                  <Text style={styles.text1}>
+                      เข้าสู่ระบบ
+                  </Text>
+                  <Text style={styles.text2}>
+                      ด้วย
+                  </Text>
+                </View>
+            
+            {/* Login buttons */}
+            <View style={styles.buttonLogin}>
+              <Icon.Button
+                name="facebook"
+                backgroundColor="#3b5998"
+                onPress={this.loginWithFacebook}
+                {...iconStyles}
+              >
+                เข้าสู่ระบบด้วย Facebook
+              </Icon.Button>    
             </View>
+    
+            <View style={styles.content2}>
+              <Text style={styles.text2}>
+                ยังไม่มีไดอารี่แปลงกาย ?
+              </Text>
+              <TouchableOpacity /*onPress={() => navigation.navigate('SignUp')}*/>
+                <Text style={styles.textBold}>
+                  ลงทะเบียนที่นี่
+                </Text>
+              </TouchableOpacity>
+            </View>
+            
+          </View>
+        );
         
-        {/* Login buttons */}
-        <View style={styles.buttonLogin}>
-          <Icon.Button
-            name="facebook"
-            backgroundColor="#3b5998"
-            onPress={this.loginWithFacebook}
-            {...iconStyles}
-          >
-            เข้าสู่ระบบด้วย Facebook
-          </Icon.Button>    
-        </View>
+      }
 
-        <View style={styles.content2}>
-          <Text style={styles.text2}>
-            ยังไม่มีไดอารี่แปลงกาย ?
-          </Text>
-          <TouchableOpacity /*onPress={() => navigation.navigate('SignUp')}*/>
-            <Text style={styles.textBold}>
-              ลงทะเบียนที่นี่
-            </Text>
+      return(
+        <View style={styles.container}>
+          <Text>สวัสดี {user.displayName}</Text>
+          <TouchableOpacity onPress={()=>firebase.auth().signOut()}>
+            <Text>ออกจากระบบ</Text>
           </TouchableOpacity>
         </View>
-        
-      </View>
-    );}
+      )
+
+    }
   }
 
-  export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+  export default LoginScreen
   
   const iconStyles = {
     borderRadius: 10,

@@ -19,7 +19,7 @@ export default class EachDiary extends React.Component {
     render() {
         //สมมติข้อมูล
         this.diaryDate = "1",
-        this.diaryContent = "วันนี้... คุณทำความดีแล้วรึยัง ?"
+        this.diaryContent = "แล้วเราคนเดียวจะไปสู้ไหวหรอ"
 
     return (
       <View style={styles.container}>
@@ -27,7 +27,7 @@ export default class EachDiary extends React.Component {
             <View  style={styles.headerDiary} >
                 <TouchableOpacity>
                     <Text   style={styles.diaryDate} >
-                        Day  {this.diaryDate}
+                        Day  {this.props.day}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.heart}>
@@ -40,20 +40,20 @@ export default class EachDiary extends React.Component {
                 </TouchableOpacity>
             </View>
             <Text style={styles.diaryContent}>
-                {this.diaryContent}
+                {this.props.content}
             </Text>
             <View style={styles.diaryImageRow}>
                 <Image
                     style={styles.diaryImage}
-                    source={require('../assets/avatar.png')} 
+                    source={{uri:"https://www.khunmaejuphuket.com/wp-content/uploads/2018/07/IMG_0516-1.jpg"}} 
                 />
                 <Image
                     style={styles.diaryImage}
-                    source={require('../assets/avatar.png')} 
+                    source={{uri:"https://th.openrice.com/userphoto/Recipe/0/1D/0009S7EE3C8CAF7D126471l.jpg"}}
                 />
                 <Image
                     style={styles.diaryImage}
-                    source={require('../assets/avatar.png')} 
+                    source={{uri:"https://f.btwcdn.com/store-41965/product/bad20e17-d05a-d1c3-69bf-5bd5d879e344.jpg"}}
                 />
             </View>
         </Card>
