@@ -17,14 +17,14 @@ export default class WorkOutChallenge extends React.Component {
         this.challengeName = "สำหรับคนที่ต้องการลดความอ้วน"
 
     return (
-            <View style={styles.challengeSelection}>
-                <TouchableOpacity /*onPress={() => this.props.navigation.navigate("WorkoutDetail")}*/>
-                    <Text style={styles.number}>รูปแบบที่ {this.number}</Text>
-                    <Text style={styles.challengeName}>
-                        {this.challengeName}
-                    </Text>
-                </TouchableOpacity>
-            </View>
+        <View style={styles.challengeSelection}>
+            <TouchableOpacity /*onPress={() => this.props.navigation.navigate("WorkoutDetailScreen")}*/>
+                <Text style={styles.number}>รูปแบบที่ {this.number}</Text>
+                <Text style={styles.challengeName}>
+                    {this.challengeName}
+                </Text>
+            </TouchableOpacity>
+        </View>
         
     );}
 }

@@ -1,32 +1,36 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
+import WorkOutDetail from '../components/EachWorkOutDetail'
 
-export default class WorkoutDetailandGoal extends React.Component {
+export default class EachWorkOutGoal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       number: "",
+      challengeName: "",
+      goal: "",
       detail: ""
     }
   }
   render() {
 
     this.number = 1,
+    this.challengeName = "สำหรับคนที่ต้องการลดความอ้วน",
+    this.goal = "ลดน้ำหนัก รักษารูปร่าง",
     this.detail = "เป็นการออกกำลังกายที่สามารถทำได้จากที่บ้าน ใช้อุปกรณ์ที่มีอยู่ในบ้าน"
 
     return (
         <View>
-          <View style={styles.detailBox}>
-            <Text style={styles.detail}>
-              รายละเอียดของรูปแบบที่ {this.number} {"\n"}
-              {this.detail}
+          
+          <View style={styles.goal}>
+            <Text style={{fontSize:18, fontWeight:'bold',textAlign:'center'}}>
+              เป้าหมาย   <Text style={{fontWeight:'normal'}}> {this.goal}</Text>
             </Text>
-            <TouchableOpacity style={styles.buttonAddChallenge}>
-              <Text style={{fontSize:16,}}>
-                เพิ่มในการออกกำลังกายของฉัน
-              </Text>
-            </TouchableOpacity>
+          </View>
+  
+          <View>
+            {/* <WorkOutDetail/> */}
           </View>
         </View>
     );}

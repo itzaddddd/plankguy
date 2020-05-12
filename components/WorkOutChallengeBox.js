@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     //     flexDirection: 'column',
         borderRadius: 6,
         borderWidth: 3,
-        borderColor: 'white',
+        borderColor: '#A0D1F7',
     },
     challengeRow: {
         borderBottomWidth: 1,
