@@ -18,12 +18,12 @@ export default class WorkOutChallenge extends React.Component {
 
     return (
             <View style={styles.challengeSelection}>
-                <TouchableOpacity /*onPress={() => this.props.navigation.navigate("WorkoutDetail")}*/>
+                <View>
                     <Text style={styles.number}>รูปแบบที่ {this.number}</Text>
                     <Text style={styles.challengeName}>
                         {this.challengeName}
                     </Text>
-                </TouchableOpacity>
+                </View>
             </View>
         
     );}
