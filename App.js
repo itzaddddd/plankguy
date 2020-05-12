@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet} from 'react-native';
+import * as firebase from 'firebase'
+
+import { Provider } from 'react-redux'
+import { store } from './redux/app-redux'
+
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
@@ -18,6 +23,19 @@ import DiaryPageScreen from './screen/diary/DiaryPageScreen'
 import SelectChallenge from './screen/eating/SelectChallenge'
 
 const Drawer = createDrawerNavigator()
+
+// Your web app's Firebase configuratio
+const firebaseConfig = {
+  apiKey: "AIzaSyDpKsn8awo4wKvjZ2a_pAGxB-tcuE6aWr4",
+  authDomain: "plankguy-5555.firebaseapp.com",
+  databaseURL: "https://plankguy-5555.firebaseio.com",
+  projectId: "plankguy-5555",
+  storageBucket: "plankguy-5555.appspot.com",
+  messagingSenderId: "639160082860",
+  appId: "1:639160082860:web:993de85ecbbd1012ba5a09"
+};
+// Initialize Firebase
+if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
 export default function App() {
   return (
     <NavigationContainer>

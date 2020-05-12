@@ -1,9 +1,59 @@
 import React from 'react';
 import { Image,  Linking,  StyleSheet,  Platform,  Text,  View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios'
 
+const domain = 'https://adc2bdf5.ngrok.io' 
 export default class SignUpScreen extends React.Component {
+  state = {
+    user: undefined // user has not logged in yet
+  }
+
+  // Set up Linking
+  componentDidMount() {
+    // // Add event listener to handle OAuthLogin:// URLs
+    // Linking.addEventListener('url', this.handleOpenURL);
+    // // Launched from an external URL
+    // Linking.getInitialURL().then((url) => {
+    //   console.log(url)
+    //   if (url) {
+    //     this.handleOpenURL({ url });
+    //   }
+    // });
+    
+  };
+
+  componentWillUnmount() {
+    // // Remove event listener
+    // Linking.removeEventListener('url', this.handleOpenURL);
+  };
+
+
+  handleOpenURL = ({ url }) => {
+    console.log('open url ',url)
+    // Extract stringified user string out of the URL
+    const [, user_string] = url.match(/user=([^#]+)/);
+    this.setState({
+      // Decode the user string and parse it into JSON
+      user: JSON.parse(decodeURI(user_string))
+    });
+    // if (Platform.OS === 'ios') {
+    //   SafariView.dismiss();
+    // }
+  };
+   // Handle Login with Facebook button tap
+   loginWithFacebook = () => this.openURL(`${domain}/user/facebook`);
+
+   // Handle Login with Google button tap
+   loginWithGoogle = () => this.openURL(`${domain}/user/google`);
+
+   openURL = url => {
+     Linking.openURL(url)
+   }
+
   render() {
+    const {user} = this.state
+    console.log('user ',user)
     return (
       <View style={styles.container}>
         
@@ -36,7 +86,7 @@ export default class SignUpScreen extends React.Component {
           <Icon.Button
             name="facebook"
             backgroundColor="#3b5998"
-            // onPress={this.loginWithFacebook}
+            onPress={this.loginWithFacebook}
             {...iconStyles}
           >
             Facebook
@@ -44,18 +94,10 @@ export default class SignUpScreen extends React.Component {
           <Icon.Button
             name="google"
             backgroundColor="#DD4B39"
-            // onPress={this.loginWithGoogle}
+            onPress={this.loginWithGoogle}
             {...iconStyles}
           >
             Google
-          </Icon.Button>
-          <Icon.Button
-            name="twitter"
-            backgroundColor="#50ABF1"
-            // onPress={this.loginWithGoogle}
-            {...iconStyles}
-          >
-            Twitter
           </Icon.Button>
           
         </View>
