@@ -53,13 +53,6 @@ export default function App() {
           <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
           <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
           <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
-<<<<<<< HEAD
-          <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
-    
-          <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
-
-=======
->>>>>>> aa284e0c3618c6af65b84c3bf2d1ea9dc6ea6ce7
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
           <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
           
