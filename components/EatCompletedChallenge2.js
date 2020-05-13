@@ -18,8 +18,8 @@ export default class EachDiary extends React.Component {
 
     render() {
         //สมมติข้อมูล
-        this.diaryDate = "ชาเลนจ์การกิน รูปแบบเพื่อสุขภาพที่ดี",
-        this.diaryContent = "   ข้อมูลเทสสสสสสสสสสสสสสสสสสสสสสสส"
+        this.diaryDate = "ชาเลนจ์การกิน สำหรับผู้ที่ต้องการมีสุขภาพที่ดี",
+        this.diaryContent = "   ควรทานมื้อเย็น ช่วงเวลาหกโมงเย็นถึงหนึ่งทุ่มหรือก่อนเข้านอน 4-6 ชั่วโมง ไม่ควรเกินกว่านี้เพราะโปรตีนต้องใช้เวลาย่อยและดูดซึมถึง 4 ชั่วโมง"
 
     return (
       <View style={styles.container}>
