@@ -3,16 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import WorkOut from './WorkOut'
 
-export default class WorkOutChallenge extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            number: "",
-            challengeName: ""
-        };
-    }
+export default function MyWorkOutList({navigation}) {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         number: "",
+    //         challengeName: ""
+    //     };
+    // }
 
-    render() {
+    // render() {
 
         // this.number = 1,
         // this.challengeName = "สำหรับคนที่ต้องการลดความอ้วน"
@@ -20,13 +20,13 @@ export default class WorkOutChallenge extends React.Component {
     return (
         <View style={styles.workOutList}>
             <WorkOut />
-            <TouchableOpacity  style={styles.buttonDelete}>
+            <TouchableOpacity  style={styles.buttonDelete}  onPress={()=> navigation.navigate('WorkoutChallenge')}>
                 <Text style={{fontSize:16, fontWeight:'bold',textAlign:'center'}}>
                     ลบรายการนี้
                 </Text>
             </TouchableOpacity>
         </View>
-    );}
+    );
   }
   
   const styles = StyleSheet.create({

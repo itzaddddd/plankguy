@@ -38,39 +38,39 @@ export default class DailyEatingScreen extends React.Component {
               </TouchableOpacity>
           </View>
           <Modal
-         transparent={true}
-         visible={this.state.show}
-         >
-        <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
-          <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
-            <Text style={{fontSize: 15,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
-            <View style={{textAlign:"right",flexDirection:"row"}}>
-                <Text style={{marginLeft:5,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:5,fontSize:12}}>น้อย</Text><Text style={{marginLeft:5,fontSize:12}}>พอดี</Text><Text style={{marginLeft:5,fontSize:12}}>มาก</Text><Text style={{marginLeft:5,fontSize:12}}>มากเกินไป</Text>
+            transparent={true}
+            visible={this.state.show}
+            >
+            <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
+              <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
+                <Text style={{fontSize: 18,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
+                <View style={{textAlign:"right",flexDirection:"row"}}>
+                    <Text style={{marginLeft:5,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:5,fontSize:12}}>น้อย</Text><Text style={{marginLeft:5,fontSize:12}}>พอดี</Text><Text style={{marginLeft:5,fontSize:12}}>มาก</Text><Text style={{marginLeft:5,fontSize:12}}>มากเกินไป</Text>
+                </View>
+                <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2}}>
+                  <Text>โปรตีน</Text>
+                    <Radio/>
+                </View>
+                <View>
+                  <Text>คาร์โบไฮเดรต</Text>
+                    <Radio/>
+                </View>
+                <View>
+                  <Text>แร่ธาตุ</Text>
+                    <Radio/>
+                </View>
+                <View>
+                  <Text>วิตามิน</Text>
+                    <Radio/>
+                </View>
+                <View>
+                  <Text>ไขมัน</Text>
+                    <Radio/>
+                </View>
+      
+                <Button style={{fontSize: 30}}  title="ยืนยัน" onPress={()=>{this.setState({show:false})}}/>
+              </View>
             </View>
-            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2}}>
-              <Text>โปรตีน</Text>
-                <Radio/>
-            </View>
-            <View>
-              <Text>คาร์โบไฮเดรต</Text>
-                <Radio/>
-            </View>
-            <View>
-              <Text>แร่ธาตุ</Text>
-                <Radio/>
-            </View>
-            <View>
-              <Text>วิตามิน</Text>
-                <Radio/>
-            </View>
-            <View>
-              <Text>ไขมัน</Text>
-                <Radio/>
-            </View>
-  
-            <Button style={{fontSize: 30}}  title="ยืนยัน" onPress={()=>{this.setState({show:false})}}/>
-          </View>
-        </View>
           </Modal>
         </View>
     );

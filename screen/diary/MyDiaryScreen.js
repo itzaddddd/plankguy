@@ -71,9 +71,6 @@ export default class MyDiaryScreen extends Component {
           <Text style={styles.topicMyDiary}>ไดอารี่ของฉัน</Text>
           <ScrollView style={{paddingBottom:100,}}>
             <EachDiary/>
-            <EachDiary/>
-            <EachDiary/>
-            <EachDiary/>
           </ScrollView>
           <Popup/>
         </View>
