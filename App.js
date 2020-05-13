@@ -10,13 +10,8 @@ import MyDiaryScreen from './screen/diary/MyDiaryScreen'
 import EatChallengeScreen from './screen/eating/CreateEatingChellengeScreen'
 import WorkoutChallengeScreen from './screen/workout/CreateWorkoutChellengeScreen'
 import FavDiaryScreen from './screen/diary/FavDiaryScreen'
-<<<<<<< HEAD
-import LoginScreen from './screen/auth/LoginScreen'
-import SignUpScreen from './screen/auth/Signup.Screen'
-=======
 //import LoginScreen from './screen/auth/LoginScreen'
 //import SignUpScreen from './screen/auth/Signup.Screen'
->>>>>>> aa284e0c3618c6af65b84c3bf2d1ea9dc6ea6ce7
 import ProfileScreen from './screen/auth/ProfileScreen'
 import EditProfileScreen from './screen/auth/EditProfileScreen'
 import WorkoutDetailScreen from './screen/workout/WorkoutDetailScreen'
@@ -53,13 +48,6 @@ export default function App() {
           <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
           <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
           <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
-<<<<<<< HEAD
-          <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
-    
-          <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} />
-
-=======
->>>>>>> aa284e0c3618c6af65b84c3bf2d1ea9dc6ea6ce7
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
           <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
           
