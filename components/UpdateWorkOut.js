@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View , Image ,ScrollView } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import EachWorkOutGoal from './EachWorkOutGoal'
-import NavigationBar from 'react-native-navbar';
+import RadioUpdateWorkOut from './RadioUpdateWorkOut'
 
 
 export default class UpdateWorkOut extends React.Component  {
@@ -74,7 +72,7 @@ export default class UpdateWorkOut extends React.Component  {
                     <View style={{flexDirection:'column', marginTop: 20, marginLeft:20,}}>
                         <View style={styles.toDoList}>
                             <Text style={styles.toDoName}>วิ่ง 30 นาที</Text>
-                            
+                            <RadioUpdateWorkOut/>
                         </View>
                         <View style={styles.toDoList}>
                             <Text style={styles.toDoName}>เดินเร็ว 15 นาที</Text>
@@ -115,7 +113,8 @@ const styles = StyleSheet.create({
         // fontFamily: 'K2D'
     },
     toDoList: {
-        flexDirection: 'column',
+        flexDirection: 'row',
+        textAlignVertical: 'center',
     },
     toDoName: {
         fontSize: 17,

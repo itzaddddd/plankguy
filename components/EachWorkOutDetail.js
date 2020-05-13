@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 
-export default class WorkoutDetailandGoal extends React.Component {
+export default class WorkoutDetail extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,7 @@ export default class WorkoutDetailandGoal extends React.Component {
               รายละเอียดของรูปแบบที่ {this.number} {"\n"}
               {this.detail}
             </Text>
-            <TouchableOpacity style={styles.buttonAddChallenge}>
+            <TouchableOpacity style={styles.buttonAddChallenge} /*onPress={() => this.props.navigaion.navigate('MyWorkout')}*/>
               <Text style={{fontSize:16,}}>
                 เพิ่มในการออกกำลังกายของฉัน
               </Text>

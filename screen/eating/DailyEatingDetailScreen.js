@@ -67,7 +67,7 @@ export default class DailyEatingDetailScreen extends React.Component  {
             this.Statusbar3 = "ยังไม่ได้บันทึก",
             this.Statusbar4 = "ยังไม่ได้บันทึก"
     return (
-      <ScrollView>
+      <ScrollView style={{backgroundColor:'#fff'}}>
         {/* <NavigationBar
         containerStyle ={Bar}
         tintColor='#C0E3FF'

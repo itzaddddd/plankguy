@@ -10,7 +10,11 @@ import MyDiaryScreen from './screen/diary/MyDiaryScreen'
 import EatChallengeScreen from './screen/eating/CreateEatingChellengeScreen'
 import WorkoutChallengeScreen from './screen/workout/CreateWorkoutChellengeScreen'
 import FavDiaryScreen from './screen/diary/FavDiaryScreen'
+<<<<<<< HEAD
 //import LoginScreen from './screen/auth/LoginScreen'
+=======
+import LoginScreen from './screen/auth/LoginScreen'
+>>>>>>> 7611e60cd11ef5449a4e3830a7608db59d62e5b7
 //import SignUpScreen from './screen/auth/Signup.Screen'
 import ProfileScreen from './screen/auth/ProfileScreen'
 import EditProfileScreen from './screen/auth/EditProfileScreen'
@@ -23,7 +27,7 @@ import DetailEatChallenge from './screen/eating/DetailEatChallenge'
 import DailyEatingDetailScreen from './screen/eating/DailyEatingDetailScreen'
 import DailyEatingScreen from './screen/eating/DailyEatingScreen'
 import WorkoutFormScreen from './screen/workout/WorkoutFormScreen'
-import UpdateWorkOut from './components/UpdateWorkOut'
+// import UpdateWorkOut from './components/UpdateWorkOut'
 
 const Drawer = createDrawerNavigator()
 
@@ -51,10 +55,10 @@ export default function App() {
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
           <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
           
-          
+
           <Drawer.Screen name="MyWorkout" component={MyWorkOutScreen} options={{title:"การออกกำลังกายของฉัน"}} />        
           <Drawer.Screen name="WorkOutForm" component={WorkoutFormScreen} options={{title:"บันทึกผลการออกกำลังกาย"}} />
-          <Drawer.Screen name="UpdateWorkOut" component={UpdateWorkOut} options={{title:"อัปเดตการออกกำลังกาย"}}/>
+          {/* <Drawer.Screen name="UpdateWorkOut" component={UpdateWorkOut} options={{title:"อัปเดตการออกกำลังกาย"}}/> */}
           <Drawer.Screen name="DiaryForm" component={DiaryFormScreen} options={{title:"เขียนไดอารี่"}} />
           <Drawer.Screen name="DiaryPage" component={DiaryPageScreen} options={{title:"หน้าแสดงไดอารี่"}} />
           <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"เลือกชาเลนจ์การกิน"}} />
