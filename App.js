@@ -44,23 +44,19 @@ export default function App() {
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Timeline" drawerStyle={style.drawer}>
           <Drawer.Screen name="Timeline" component={TimelineScreen} options={{title:"หน้าหลัก"}} />
-          <Drawer.Screen name="MyDiary" component={MyDiaryScreen} options={{title:"ไดอารี่ของฉัน"}} />
-          <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
-          <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
-          <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
-          <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
-          
-
-          <Drawer.Screen name="MyWorkout" component={MyWorkOutScreen} options={{title:"การออกกำลังกายของฉัน"}} />        
-          <Drawer.Screen name="WorkOutForm" component={WorkoutFormScreen} options={{title:"บันทึกผลการออกกำลังกาย"}} />
-          {/* <Drawer.Screen name="UpdateWorkOut" component={UpdateWorkOut} options={{title:"อัปเดตการออกกำลังกาย"}}/> */}
+          <Drawer.Screen name="MyDiary" component={MyDiaryScreen} options={{title:"ไดอารี่ของฉัน"}} />
           <Drawer.Screen name="DiaryForm" component={DiaryFormScreen} options={{title:"เขียนไดอารี่"}} />
-          <Drawer.Screen name="DiaryPage" component={DiaryPageScreen} options={{title:"หน้าแสดงไดอารี่"}} />
+          <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
+          <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
           <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"เลือกชาเลนจ์การกิน"}} />
           <Drawer.Screen name="DetailEatChallenge" component={DetailEatChallenge} options={{title:"ข้อมูลรายละเอียดชาเลนจ์"}} />
-          <Drawer.Screen name="DailyEatingDetailScreen" component={DailyEatingDetailScreen} options={{title:"สิ่งที่ต้องปฏิบัติ"}} />
+          <Drawer.Screen name="DailyEatingDetailScreen" component={DailyEatingDetailScreen} options={{title:"บันทึกอาหารรายวัน"}} />
           <Drawer.Screen name="DailyEatingScreen" component={DailyEatingScreen} options={{title:"บันทึกการอาหารการกิน"}} />
+          <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
+          <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
+          <Drawer.Screen name="MyWorkout" component={MyWorkOutScreen} options={{title:"การออกกำลังกายของฉัน"}} />        
+          <Drawer.Screen name="WorkOutForm" component={WorkoutFormScreen} options={{title:"บันทึกผลการออกกำลังกาย"}} />
         </Drawer.Navigator>
       </NavigationContainer>
   );
