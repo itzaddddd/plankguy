@@ -55,11 +55,11 @@ export default class Popup extends React.Component {
               
               this.setState({show:false})
             }}/>
-            <Button 
+            {/*<Button 
               style={{fontSize:10,backgroundColor:"white"}}
               title="ยกเลิก"
               onPress={()=>this.setState({show:false})}
-            />
+            />*/}
           </View>
         </View>
           </Modal>
