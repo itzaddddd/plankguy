@@ -18,14 +18,14 @@ export default class EachDiary extends React.Component {
 
     render() {
         //สมมติข้อมูล
-        this.diaryDate = "ชาเลนจ์การกิน สำหรับผู้ที่ต้องการสร้างกล้ามเนื้อ",
+        this.diaryDate = "ชาเลนจ์การกิน\nสำหรับผู้ที่ต้องการสร้างกล้ามเนื้อ",
         this.diaryContent = "   พยายามรับประทานมื้อเช้า มื้อเที่ยง มื้อค่ำ มื้อหลังออกกำลังกาย ก่อนนอน (อย่างน้อยหนึ่งชั่วโมงก่อนนอน)และมีอาหารว่างในระหว่างมื้อสองครั้งอาหารว่างสามารถรวมไปถึงถั่วหรือเมล็ดธัญพืชไปจนถึงผักหรือผลไม้สักครึ่งซีก"
 
     return (
       <View style={styles.container}>
         <Card>
             <View  style={styles.headerTopic} >
-                <View>
+                <View  style={{paddingHorizontal:5}}>
                     <Text   style={styles.diaryDate} >
                     {this.diaryDate}
                     </Text>
