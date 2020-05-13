@@ -7,7 +7,10 @@ export default class DailyEatingScreen extends React.Component {
   constructor(){
     super()
     this.state={
-      show:false
+      show1:false,
+      show2:false,
+      show3:false,
+      show4:false,
     }
   }
   
@@ -31,47 +34,233 @@ export default class DailyEatingScreen extends React.Component {
                   อาหารเช้า 
                   </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={{backgroundColor:"red",borderColor:"black",borderWidth: 1,borderRadius:20,width:80,height:80,alignItems:"center",justifyContent:"center",marginLeft:30}} onPress={()=> this.setState({show:true})}>
+              <TouchableOpacity style={{backgroundColor:"red",borderColor:"black",borderWidth: 1,borderRadius:20,width:80,height:80,alignItems:"center",justifyContent:"center",marginLeft:30}} onPress={()=> this.setState({show1:true})}>
                   <Text style={{color:"#fff",fontSize:20}}>
                   แก้ไข
                   </Text>
               </TouchableOpacity>
           </View>
           <Modal
-            transparent={true}
-            visible={this.state.show}
-            >
-            <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
-              <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
-                <Text style={{fontSize: 18,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
-                <View style={{textAlign:"right",flexDirection:"row"}}>
-                    <Text style={{marginLeft:5,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:5,fontSize:12}}>น้อย</Text><Text style={{marginLeft:5,fontSize:12}}>พอดี</Text><Text style={{marginLeft:5,fontSize:12}}>มาก</Text><Text style={{marginLeft:5,fontSize:12}}>มากเกินไป</Text>
-                </View>
-                <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2}}>
-                  <Text>โปรตีน</Text>
-                    <Radio/>
-                </View>
-                <View>
-                  <Text>คาร์โบไฮเดรต</Text>
-                    <Radio/>
-                </View>
-                <View>
-                  <Text>แร่ธาตุ</Text>
-                    <Radio/>
-                </View>
-                <View>
-                  <Text>วิตามิน</Text>
-                    <Radio/>
-                </View>
-                <View>
-                  <Text>ไขมัน</Text>
-                    <Radio/>
-                </View>
-      
-                <Button style={{fontSize: 30}}  title="ยืนยัน" onPress={()=>{this.setState({show:false})}}/>
-              </View>
+         transparent={true}
+         visible={this.state.show1}
+         >
+        <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
+          <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
+            <Text style={{fontSize: 20,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
+            <View style={{textAlign:"right",flexDirection:"row",marginTop:10,marginLeft:50}}>
+                <Text style={{marginLeft:52,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:10,fontSize:12}}>น้อย</Text><Text style={{marginLeft:12,fontSize:12}}>พอดี</Text><Text style={{marginLeft:15,fontSize:12}}>มาก</Text><Text style={{marginLeft:10,fontSize:12}}>มากเกินไป</Text>
             </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>โปรตีน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>คาร์โบไฮเดรต</Text>
+                <Radio/>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>แร่ธาตุ</Text>
+              <View style={{marginLeft:43}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>วิตามิน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>ไขมัน</Text>
+                <View style={{marginLeft:48}}>
+                  <Radio/>
+                </View>
+            </View>
+            <Text>{"\n"}</Text>
+            <Button  title="ยืนยัน" onPress={()=>{this.setState({show1:false})}}/>
+          </View>
+        </View>
           </Modal>
+
+          <View style={{flexDirection:"row"}}>
+              <TouchableOpacity style={{borderRadius:20,borderColor:"#d9d9d9",borderWidth: 3,flexDirection:"row",alignItems:"center",paddingRight:10}}>
+                  <Image source = {require('../../assets/correct.png')}
+                  style={{width:80,height:80}}
+                  />
+                  <Text style={{fontSize:20,marginLeft:10,alignContent:"center"}}>
+                  อาหารเที่ยง
+                  </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:"red",borderColor:"black",borderWidth: 1,borderRadius:20,width:80,height:80,alignItems:"center",justifyContent:"center",marginLeft:30}} onPress={()=> this.setState({show2:true})}>
+                  <Text style={{color:"#fff",fontSize:20}}>
+                  แก้ไข
+                  </Text>
+              </TouchableOpacity>
+          </View>
+          <Modal
+         transparent={true}
+         visible={this.state.show2}
+         >
+        <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
+          <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
+            <Text style={{fontSize: 20,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
+            <View style={{textAlign:"right",flexDirection:"row",marginTop:10,marginLeft:50}}>
+                <Text style={{marginLeft:52,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:10,fontSize:12}}>น้อย</Text><Text style={{marginLeft:12,fontSize:12}}>พอดี</Text><Text style={{marginLeft:15,fontSize:12}}>มาก</Text><Text style={{marginLeft:10,fontSize:12}}>มากเกินไป</Text>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>โปรตีน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>คาร์โบไฮเดรต</Text>
+                <Radio/>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>แร่ธาตุ</Text>
+              <View style={{marginLeft:43}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>วิตามิน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>ไขมัน</Text>
+                <View style={{marginLeft:48}}>
+                  <Radio/>
+                </View>
+            </View>
+            <Text>{"\n"}</Text>
+            <Button  title="ยืนยัน" onPress={()=>{this.setState({show2:false})}}/>
+          </View>
+        </View>
+          </Modal>
+          <View style={{flexDirection:"row"}}>
+              <TouchableOpacity style={{borderRadius:20,borderColor:"#d9d9d9",borderWidth: 3,flexDirection:"row",alignItems:"center",paddingRight:20}}>
+                  <Image source = {require('../../assets/correct.png')}
+                  style={{width:80,height:80}}
+                  />
+                  <Text style={{fontSize:20,marginLeft:10,alignContent:"center"}}>
+                  อาหารเย็น 
+                  </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:"red",borderColor:"black",borderWidth: 1,borderRadius:20,width:80,height:80,alignItems:"center",justifyContent:"center",marginLeft:30}} onPress={()=> this.setState({show3:true})}>
+                  <Text style={{color:"#fff",fontSize:20}}>
+                  แก้ไข
+                  </Text>
+              </TouchableOpacity>
+          </View>
+          <Modal
+         transparent={true}
+         visible={this.state.show3}
+         >
+        <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
+          <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
+            <Text style={{fontSize: 20,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
+            <View style={{textAlign:"right",flexDirection:"row",marginTop:10,marginLeft:50}}>
+                <Text style={{marginLeft:52,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:10,fontSize:12}}>น้อย</Text><Text style={{marginLeft:12,fontSize:12}}>พอดี</Text><Text style={{marginLeft:15,fontSize:12}}>มาก</Text><Text style={{marginLeft:10,fontSize:12}}>มากเกินไป</Text>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>โปรตีน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>คาร์โบไฮเดรต</Text>
+                <Radio/>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>แร่ธาตุ</Text>
+              <View style={{marginLeft:43}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>วิตามิน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>ไขมัน</Text>
+                <View style={{marginLeft:48}}>
+                  <Radio/>
+                </View>
+            </View>
+            <Text>{"\n"}</Text>
+            <Button  title="ยืนยัน" onPress={()=>{this.setState({show3:false})}}/>
+          </View>
+        </View>
+          </Modal>
+          <View style={{flexDirection:"row"}}>
+              <TouchableOpacity style={{borderRadius:20,borderColor:"#d9d9d9",borderWidth: 3,flexDirection:"row",alignItems:"center",paddingRight:20}}>
+                  <Image source = {require('../../assets/correct.png')}
+                  style={{width:80,height:80}}
+                  />
+                  <Text style={{fontSize:20,marginLeft:10,alignContent:"center"}}>
+                  อาหารว่าง 
+                  </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:"red",borderColor:"black",borderWidth: 1,borderRadius:20,width:80,height:80,alignItems:"center",justifyContent:"center",marginLeft:30}} onPress={()=> this.setState({show4:true})}>
+                  <Text style={{color:"#fff",fontSize:20}}>
+                  แก้ไข
+                  </Text>
+              </TouchableOpacity>
+          </View>
+          <Modal
+         transparent={true}
+         visible={this.state.show4}
+         >
+        <View style={{backgroundColor:"#000000aa",flex:1,alignItems:"center",justifyContent:"center"}}>
+          <View style={{backgroundColor:"#ffffff",margin:35,padding:40,alignItems:"center",justifyContent:"center",borderRadius: 10,}}>
+            <Text style={{fontSize: 20,textAlign:"center"}}>มื้อนี้ {"\n"}คุณได้รับสารอาหารใดบ้าง</Text>
+            <View style={{textAlign:"right",flexDirection:"row",marginTop:10,marginLeft:50}}>
+                <Text style={{marginLeft:52,fontSize:12}}>ไม่ได้รับ</Text><Text style={{marginLeft:10,fontSize:12}}>น้อย</Text><Text style={{marginLeft:12,fontSize:12}}>พอดี</Text><Text style={{marginLeft:15,fontSize:12}}>มาก</Text><Text style={{marginLeft:10,fontSize:12}}>มากเกินไป</Text>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>โปรตีน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>คาร์โบไฮเดรต</Text>
+                <Radio/>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>แร่ธาตุ</Text>
+              <View style={{marginLeft:43}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>วิตามิน</Text>
+                <View style={{marginLeft:42}}>
+                  <Radio/>
+                </View>
+            </View>
+            <View style={{flexDirection:"row",borderRadius:20,borderColor:"#e6e6e6",borderWidth:2,paddingTop:5,width:300}}>
+              <Text style={{marginRight:20,marginLeft:10}}>ไขมัน</Text>
+                <View style={{marginLeft:48}}>
+                  <Radio/>
+                </View>
+            </View>
+            <Text>{"\n"}</Text>
+            <Button  title="ยืนยัน" onPress={()=>{this.setState({show4:false})}}/>
+          </View>
+        </View>
+          </Modal>
+          <TouchableOpacity style={{backgroundColor:"#A0D1F7",padding:10,borderRadius:10,marginTop:20}}>
+            <Text style={{fontSize:20}}>ย้อนกลับ</Text>
+          </TouchableOpacity>
         </View>
     );
   }

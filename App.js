@@ -11,9 +11,9 @@ import EatChallengeScreen from './screen/eating/CreateEatingChellengeScreen'
 import WorkoutChallengeScreen from './screen/workout/CreateWorkoutChellengeScreen'
 import FavDiaryScreen from './screen/diary/FavDiaryScreen'
 import LoginScreen from './screen/auth/LoginScreen'
-// import SignUpScreen from './screen/auth/Signup.Screen'
+//import SignUpScreen from './screen/auth/Signup.Screen'
 import ProfileScreen from './screen/auth/ProfileScreen'
-//import EditProfileScreen from './screen/auth/EditProfileScreen'
+import EditProfileScreen from './screen/auth/EditProfileScreen'
 import WorkoutDetailScreen from './screen/workout/WorkoutDetailScreen'
 import MyWorkOutScreen from './screen/workout/MyWorkoutScreen'
 import DiaryPageScreen from './screen/diary/DiaryPageScreen'
@@ -48,10 +48,6 @@ export default function App() {
           <Drawer.Screen name="EatChallenge" component={EatChallengeScreen} options={{title:"ชาเลนจ์การกิน"}} />
           <Drawer.Screen name="WorkoutChallenge" component={WorkoutChallengeScreen} options={{title:"ชาเลนจ์ออกกำลังกาย"}} />
           <Drawer.Screen name="FavDiary" component={FavDiaryScreen} options={{title:"ไดอารี่โปรด"}} />
-          <Drawer.Screen name="Login" component={LoginScreen} options={{title:"เข้าสู่ระบบ"}} />
-    
-          {/* <Drawer.Screen name="SignUp" component={SignUpScreen} options={{title:"ลงทะเบียน"}} /> */}
-
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{title:"โปรไฟล์"}} />
           <Drawer.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{title:"รายละเอียดชาเลนจ์ออกกำลังกาย"}} />
           
@@ -61,10 +57,10 @@ export default function App() {
           {/* <Drawer.Screen name="UpdateWorkOut" component={UpdateWorkOut} options={{title:"อัปเดตการออกกำลังกาย"}}/> */}
           <Drawer.Screen name="DiaryForm" component={DiaryFormScreen} options={{title:"เขียนไดอารี่"}} />
           <Drawer.Screen name="DiaryPage" component={DiaryPageScreen} options={{title:"หน้าแสดงไดอารี่"}} />
-          <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"Test"}} />
-          <Drawer.Screen name="DetailEatChallenge" component={DetailEatChallenge} options={{title:"Test1"}} />
-          <Drawer.Screen name="DailyEatingDetailScreen" component={DailyEatingDetailScreen} options={{title:"Test2"}} />
-          <Drawer.Screen name="DailyEatingScreen" component={DailyEatingScreen} options={{title:"Test3"}} />
+          <Drawer.Screen name="SelectChallenge" component={SelectChallenge} options={{title:"เลือกชาเลนจ์การกิน"}} />
+          <Drawer.Screen name="DetailEatChallenge" component={DetailEatChallenge} options={{title:"ข้อมูลรายละเอียดชาเลนจ์"}} />
+          <Drawer.Screen name="DailyEatingDetailScreen" component={DailyEatingDetailScreen} options={{title:"สิ่งที่ต้องปฏิบัติ"}} />
+          <Drawer.Screen name="DailyEatingScreen" component={DailyEatingScreen} options={{title:"บันทึกการอาหารการกิน"}} />
         </Drawer.Navigator>
       </NavigationContainer>
   );

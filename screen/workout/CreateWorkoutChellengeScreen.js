@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ViewBase, ScrollView } from 'react-native';
 import WorkOutChallenge from '../../components/WorkOutChallengeBox'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 

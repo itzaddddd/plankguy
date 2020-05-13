@@ -15,16 +15,10 @@ export default class DetailEatChallenge extends React.Component  {
 
     render() {
         //สมมติข้อมูล
-        this.Topic = "ชาเลนจ์การกิน รูปแบบเพื่อสุขภาพที่ดี",
-        this.Description = "ผักและผลไม้ 2 กำต่อมื้อ\nโปรตีน 2 ฝ่ามือต่อมื้อ\nนม 1 แก้วต่อมื้อ"
+        this.Topic = "ชาเลนจ์การกิน สำหรับผู้ที่ต้องการลดน้ำหนัก",
+        this.Description = "มื้อเช้า\nโจ๊ก ข้าวโอ้ค ขนมปัง แซนวิส ไข่ต้ม อกไก่\n\nมื้อกลางวัน\nแกงจืด ข้าวกล้อง สลัดทูน่าอาหารที่ประอบด้วยผักสด อกไก่\n\nมื้อเย็น\nสลัดผัก โยเกิร์ต วุ้นเส้น ไข่ขาว สลัดแซลมอล สุกี้น้ำ\n\nอาหารว่าง\nผลไม้ น้ำผลไม้ โยเกิร์ต"
     return (
       <ScrollView>
-        {/* <NavigationBar
-        containerStyle ={Bar}
-        tintColor='#C0E3FF'
-        title= {titleConfig}
-        style={{position:'relative'}}
-      /> */}
       <View style={styles.container}>
           <View style={styles.container2}>
             <Image 
