@@ -30,12 +30,6 @@ class LoginScreen extends React.Component {
   componentDidMount(){
     firebase.auth().onAuthStateChanged(user => {
       if(user !== null){
-        // let userData = user.providerData[0]
-        // firebase.database().ref(`users/${userData.uid}`).set({
-        //   name: userData.displayName,
-        //   email: userData.email,
-        //   photo: userData.photoURL
-        // })
         this.setState({user:user.providerData[0]})
       }else{
         this.setState({user:null})
